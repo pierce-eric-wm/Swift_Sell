@@ -11,6 +11,7 @@
     </div>
 </tr>
 <?php
+<<<<<<< HEAD
 require_once ('connect.php');
 // Get all products
 $query = "SELECT * FROM products ORDER BY id DESC  LIMIT 10 ";
@@ -36,3 +37,19 @@ foreach ($id as $row) {
 ?>
 </body>
 </html>
+=======
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swift Sell</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+
+    <body>
+
+    </body>
+</html>
+>>>>>>> ac378aa62c72e90374a60c4d6a48b060265f100c
