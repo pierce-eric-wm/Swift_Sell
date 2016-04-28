@@ -12,15 +12,16 @@
 </tr>
 <?php
 require_once ('connect.php');
-// Get all products
+require_once ('session.php');
+// Get 10 of the newest products if the user is not signed in
 $query = "SELECT * FROM products ORDER BY id DESC  LIMIT 10 ";
 $stmt =  $dbh->prepare($query);
 $stmt->execute();
 $id = $stmt->fetchAll();
-
+// Echo 10 of the newest products
 foreach ($id as $row) {
     echo '<table>';
-    // Display the score data
+    // Display the Product data
     $filepath = GW_UPLOADPATH . $row['productImage'];
     echo '<tr>';
     echo '<strong>Name:</strong> ' . $row['productName'] . '<br />';
@@ -33,6 +34,9 @@ foreach ($id as $row) {
         echo '</table>';
     }
 }
+// If the user is signed in then the index will display 10 products to only
+// show items from the categories that the user who is signed in/ logged in likes
+
 ?>
     </body>
 </html>
