@@ -7,7 +7,7 @@
 <body>
 <tr>
     <div id="navbar">
-       <a href="index.php">Home</a>
+       <p><a href="index.php" style="text-decoration:none">Home</a></p>
     </div>
 </tr>
 <?php
@@ -39,7 +39,6 @@ foreach ($id as $row) {
 if (isset($_SESSION['username'])) {
     echo ' <a href="profile.php">View Profile</a><br />';
     echo ' <a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a>';
-
 }
 
 ?>
