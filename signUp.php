@@ -13,19 +13,54 @@
         $cardNumber = $_POST['cardNumber'];
         $catagory = $_POST['catagory'];
         $password = $_POST['password'];
-        $ConfirmPassword = $_POST['confirmPassword'];
+        $confirmPassword = $_POST['confirmPassword'];
+        echo "$confirmPassword";
 
         // Makes sure user fills out all of the forms
         if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($password) && !empty($confirmPassword)) {
+            // Make sure the user has the same passwords
             if ($password == $confirmPassword) {
+
+                // If everything is good then we can insert the user data into the databse
                 $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :password)");
-                $Query->execute(
+                $query->execute(
                     array(
                         'userid' => 0,
                         'username' => $username,
-                        '' => ,
+                        'email' => $email,
+                        'address' => $address,
+                        'phoneNumber' => $phoneNumber,
+                        'cardNumber' => $cardNumber,
+                        'catagory' => $catagory,
+                        'password' => $password
                     )
                 );
+
+                $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
+                $query->execute(
+                    array(
+                        'email' => $email
+                    )
+                );
+                $userid = $query->fetch();
+
+                // We then stored user data in PHP Session
+                $_SESSION['userid'] = $userid;
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $email;
+                $_SESSION['catagory'] = $catagory;
+                $_SESSION['address'] = $address;
+                $_SESSION['signIn'] = true;
+
+                // Email the user a confirmation of signing up
+                $to = "$email";
+                $subject = "Swift Sell Sign Up Confirmation";
+                $txt = "Hello $username,<br>We are emailing you to confirm your sign up at Swift Sell";
+
+                mail($to,$subject,$txt);
+
+                // Take the user to the profile page
+                header('location: profile.php');
             }
             else {
                 echo "<p>Make sure your passwords match</p>";
@@ -81,7 +116,7 @@
             <label for="confirmPassword">Confirm Password</label>
             <br>
 
-            <button type="submit" name="signUp">Sign Up</button>
+            <button type="submit" name="signUp" value="1">Sign Up</button>
         </form>
     </body>
 </html>
