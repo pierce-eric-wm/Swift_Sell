@@ -36,6 +36,11 @@ foreach ($id as $row) {
 }
 // If the user is signed in then the index will display 10 products to only
 // show items from the categories that the user who is signed in/ logged in likes
+if (isset($_SESSION['username'])) {
+    echo ' <a href="profile.php">View Profile</a><br />';
+    echo ' <a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a>';
+
+}
 
 ?>
     </body>
