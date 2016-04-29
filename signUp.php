@@ -14,7 +14,6 @@
         $catagory = $_POST['catagory'];
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
-        echo "$confirmPassword";
 
         // Makes sure user fills out all of the forms
         if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($password) && !empty($confirmPassword)) {
@@ -44,23 +43,26 @@
                 );
                 $userid = $query->fetch();
 
-                // We then stored user data in PHP Session
-                $_SESSION['userid'] = $userid;
-                $_SESSION['username'] = $username;
-                $_SESSION['email'] = $email;
-                $_SESSION['catagory'] = $catagory;
-                $_SESSION['address'] = $address;
-                $_SESSION['signIn'] = true;
+                // If we see the user has been added then set things up
+                if ($userid) {
+                    // We then stored user data in PHP Session
+                    $_SESSION['userid'] = $userid;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['catagory'] = $catagory;
+                    $_SESSION['address'] = $address;
+                    $_SESSION['signIn'] = true;
 
-                // Email the user a confirmation of signing up
-                $to = "$email";
-                $subject = "Swift Sell Sign Up Confirmation";
-                $txt = "Hello $username,<br>We are emailing you to confirm your sign up at Swift Sell";
+                    // Email the user a confirmation of signing up
+                    $to = "$email";
+                    $subject = "Swift Sell Sign Up Confirmation";
+                    $txt = "Hello $username,<br>We are emailing you to confirm your sign up at Swift Sell";
 
-                mail($to,$subject,$txt);
+                    mail($to,$subject,$txt);
 
-                // Take the user to the profile page
-                header('location: profile.php');
+                    // Take the user to the profile page
+                    header('location: profile.php');
+                }
             }
             else {
                 echo "<p>Make sure your passwords match</p>";
