@@ -11,13 +11,7 @@
     </head>
 
     <body>
-        <tr>
-            <div id="navbar">
-                <p>
-                    <a href="index.php" style="text-decoration:none">Home</a>
-                </p>
-            </div>
-        </tr>
+        <a href="index.php">Swift Sell</a>
 
         <?php
             // Get 10 of the newest products
