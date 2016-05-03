@@ -6,8 +6,8 @@
 
     if (@$_POST['upload']) {
         // Pull session data on the user
-        $_SESSION['userid'] = $userid;
-        $_SESSION['username'] = $username;
+        $userid = $_SESSION['userid'];
+        $username = $_SESSION['username'];
 
         // Pull the post data from the form
         $name = $_POST['name'];
@@ -21,7 +21,40 @@
 
         // Checks to make sure user has filled out all fields
         if (!empty($name) && !empty($price) && !empty($description) && !empty($catagory) && !empty($imageName)) {
+            // Checks to make sure the file is not bigger than 10Mb
+            if ($imageSize < 10485760) {
+                // Define the path for the image to go
+                $imagePath = "images/$imageName";
 
+                // Move the image onto the server in appropriate location
+                if (move_uploaded_file($_FILES['image'] ['tmp_name'], $imagePath)) {
+                    // Insert product data into database
+                    $query = $dbh->prepare("INSERT INTO products VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)");
+                    $result = $query->execute(
+                        array(
+                            'productid' => 0,
+                            'users_userid' => $userid,
+                            'users_username' => $username,
+                            'productName' => $name,
+                            'productPrice' => $price,
+                            'productDescription' => $description,
+                            'productCatagory' => $catagory,
+                            'productLikes' => 0,
+                            'productImage' => $imageName
+                        )
+                    );
+
+                    $success = true;
+                }
+
+                else {
+                    echo "<p>There was an error with something that we dont know</p>";
+                }
+            }
+
+            else {
+                echo "<p>Your file must be smaller than 10Mb</p>";
+            }
         }
         else {
             echo "<p>Please fill out all of the fields</p>";
@@ -69,7 +102,7 @@
             <label for="image">Image</label>
             <br>
 
-            <button type="submit" name="upload">Upload</button>
+            <button type="submit" name="upload" value="1">Upload</button>
         </form>
 
         <p>
