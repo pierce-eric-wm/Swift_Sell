@@ -9,10 +9,15 @@
         <title>Swift Sell</title>
         <link rel="stylesheet" href="stylesheet.css">
     </head>
-
+<!--These are here so I can navigate around the site easily-->
+<a href="index.php"></a>
+    <a href="profile.php"></a>
+    <a href="editProfile.php"></a>
+    <a href="signIn.php"></a>
+    <a href="signOut.php"></a>
+    <a href="signUp.php"></a>
+    <a href="upload.php"></a>
     <body>
-        <a href="index.php">Swift Sell</a>
-
         <?php
             // Get 10 of the newest products
             $query = "SELECT * FROM products ORDER BY id DESC  LIMIT 10 ";
@@ -30,7 +35,7 @@
                 echo '<strong>Cost:</strong> ' . $row['productPrice'] . '<br />';
                 echo '<strong>Description:</strong>' .$row['productLikes'] .'<br />';
                 echo '<strong>Likes:</strong>' .$row['productDescription'] .'<br />';
-                echo '<strong>Seller:</strong>' .$row['users_username'] .'<br />';
+                echo '<strong>Seller:</strong>' .$row['username'] .'<br />';
                 echo '<strong>Catagorie:</strong>'.$row['productCategorie']. '<br />'
                 if (is_file($filepath) && filesize($filepath) > 0) {
                     echo '<td><img src="' . $filepath . '"alt="Find Image"  class="image"/></td>';
@@ -47,14 +52,7 @@ if (isset($_SESSION['username'])) {
     $stmt =  $dbh->prepare($query);
     $stmt->execute();
     $data = $stmt->fetchAll();
-    // if you picked something you see that something
-
-    // if (???) {
-    // php stuff echo
-    // }
 }
-
-
 ?>
     </body>
 </html>
