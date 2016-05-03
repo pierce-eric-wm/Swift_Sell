@@ -1,4 +1,6 @@
-
+body {
+    background-image: url("wov.png");
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -39,9 +41,31 @@ a:hover {
     background-color: white;
     position: fixed;
 }
-.homecover {
+.headimage {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    padding-top: 70px;
+    
 
 }
-.headimage {
-
+.casingnav {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+.categories {
+    width: 220px;
+    background-color: #ffffff;
+    height: 400px;
+    float: left;
+    margin-top: 70px;
+    position: fixed;
+}
+.profile {
+    width: 220px;
+    background-color: #ffffff;
+    height: 220px;
+    float: right;
+    margin-top: 70px;
 }
