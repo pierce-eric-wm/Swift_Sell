@@ -45,3 +45,13 @@ a:hover {
 .headimage {
 
 }
+
+.form{
+    color: black;
+    z-index: -1;
+    position: center;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
