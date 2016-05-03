@@ -28,7 +28,7 @@ foreach ($id as $row) {
     echo '<strong>Cost:</strong> ' . $row['productPrice'] . '<br />';
     echo '<strong>Description:</strong>' .$row['productLikes'] .'<br />';
     echo '<strong>Likes:</strong>' .$row['productDescription'] .'<br />';
-    echo '<strong>Seller:</strong>' .$row['users_username'] .'<br />';
+    echo '<strong>Seller:</strong>' .$row['username'] .'<br />';
     echo '<strong>Catagorie:</strong>'.$row['productCategorie']. '<br />'
     if (is_file($filepath) && filesize($filepath) > 0) {
         echo '<td><img src="' . $filepath . '"alt="Find Image"  class="image"/></td>';
@@ -45,11 +45,7 @@ if (isset($_SESSION['username'])) {
     $stmt =  $dbh->prepare($query);
     $stmt->execute();
     $data = $stmt->fetchAll();
-    // if you picked something you see that something
 
-    // if (???) {
-    // php stuff echo
-    // }
 }
 
 ?>
