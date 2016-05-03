@@ -30,11 +30,11 @@
             // If a user with that info exits then we store info in SESSIONS and take them to profile
             if ($userInfo) {
                 // Store info in SESSIONS
-                $_SESSION['userid'] = $userid;
-                $_SESSION['username'] = $username;
-                $_SESSION['email'] = $email;
-                $_SESSION['catagory'] = $catagory;
-                $_SESSION['address'] = $address;
+                $_SESSION['userid'] = $userInfo['0'];
+                $_SESSION['username'] = $userInfo['1'];
+                $_SESSION['email'] = $userInfo['2'];
+                $_SESSION['catagory'] = $userInfo['3'];
+                $_SESSION['address'] = $userInfo['4'];
                 $_SESSION['signIn'] = true;
 
                 // Take the user to the profile page

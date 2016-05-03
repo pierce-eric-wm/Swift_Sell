@@ -29,7 +29,8 @@
                 // Move the image onto the server in appropriate location
                 if (move_uploaded_file($_FILES['image'] ['tmp_name'], $imagePath)) {
                     // Insert product data into database
-                    $query = $dbh->prepare("INSERT INTO products VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)");
+                    $query = $dbh->prepare("INSERT INTO products (productid, users_userid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage)
+                        VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)");
                     $result = $query->execute(
                         array(
                             'productid' => 0,
