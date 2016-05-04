@@ -29,9 +29,9 @@
                 // Move the image onto the server in appropriate location
                 if (move_uploaded_file($_FILES['image'] ['tmp_name'], $imagePath)) {
                     // Insert product data into database
-                    $query = $dbh->prepare("INSERT INTO products (productid, users_userid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage)
-                        VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)");
-                    $result = $query->execute(
+                    $query = "INSERT INTO products VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)";
+                    $stmt = $dbh->prepare($query);
+                    $result = $stmt->execute(
                         array(
                             'productid' => 0,
                             'users_userid' => $userid,
@@ -71,6 +71,11 @@
     </head>
     <body>
         <h3>Upload Product</h3>
+        <br>
+        <a href="index.php">Home Page</a>
+        <br>
+        <a href="profile.php">Profile</a>
+        <br>
 
         <?php
             if (!isset($_SESSION['signIn'])) {
@@ -78,7 +83,7 @@
             }
         ?>
 
-        <form class="form" method="post" enctype="multipart/form-data" name="upload">
+        <form method="post" enctype="multipart/form-data" name="upload">
             <input type="text" name="name">
             <label for="name">Name</label>
             <br>

@@ -28,7 +28,7 @@
         <a href="signOut.php">Sign Out</a>
 
     <?php
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['signIn'])) {
         echo '<p class="login">Please <a href="signIn.php">Sign In</a> to access this page.</p>';
         exit();
     }
