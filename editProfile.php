@@ -1,3 +1,12 @@
+<body>
+<a href="index.php">Home</a>
+<a href="profile.php">Profile</a>
+<a href="editProfile.php">Edit</a>
+<a href="signIn.php">In</a>
+<a href="signOut.php">Out</a>
+<a href="signUp.php">Up</a>
+<a href="upload.php">Upload</a>
+
 <?php
 // Start the session
 
@@ -36,7 +45,7 @@ if (isset($_POST['submit'])) {
             echo '<p class="error">You must enter all of the profile data (the picture is optional).</p>';
         }
     }
-} // End of check for form submission
+// End of check for form submission
 else {
     // Grab the profile data from the database
     $query = "SELECT * FROM users WHERE user_id = '" . $_SESSION['user_id'] . "'";
@@ -63,7 +72,7 @@ else {
     <fieldset>
         <legend>Personal Information</legend>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="<?php if (!empty($username) echo $username; ?>" /><br />
+        <input type="text" id="username" name="username" value="<?php if (!empty($username)) echo $username;?>" /><br />
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" value="<?php if (!empty($email)) echo $email; ?>" /><br />
         <label for="password">Password:</label>

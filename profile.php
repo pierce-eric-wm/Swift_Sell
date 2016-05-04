@@ -1,7 +1,6 @@
 <?php
-session_start()
 require_once ("connect.php");
-require_once ("session.php")
+require_once ("session.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,8 +10,13 @@ require_once ("session.php")
     </head>
 
     <body>
-    <a href="index.php"></a>
-    <a href="index.php"></a>
+    <a href="index.php">Home</a>
+    <a href="profile.php">Profile</a>
+    <a href="editProfile.php">Edit</a>
+    <a href="signIn.php">In</a>
+    <a href="signOut.php">Out</a>
+    <a href="signUp.php">Up</a>
+    <a href="upload.php">Upload</a>
     <?php
     if (!isset($_SESSION['user_id'])) {
         echo '<p class="login">Please <a href="signIn.php">Sign In</a> to access this page.</p>';

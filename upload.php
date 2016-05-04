@@ -1,3 +1,10 @@
+<a href="index.php">Home</a>
+<a href="profile.php">Profile</a>
+<a href="editProfile.php">Edit</a>
+<a href="signIn.php">In</a>
+<a href="signOut.php">Out</a>
+<a href="signUp.php">Up</a>
+<a href="upload.php">Upload</a>
 <?php
     // Establish Connections and Sessions
     session_start();
@@ -29,8 +36,9 @@
                 // Move the image onto the server in appropriate location
                 if (move_uploaded_file($_FILES['image'] ['tmp_name'], $imagePath)) {
                     // Insert product data into database
-                    $query = $dbh->prepare("INSERT INTO products VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)");
-                    $result = $query->execute(
+                    $query = "INSERT INTO products VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)";
+                    $stmt= $dbh->prepare($query);
+                    $result = $stmt->execute(
                         array(
                             'productid' => 0,
                             'users_userid' => $userid,

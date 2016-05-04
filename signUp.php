@@ -6,6 +6,13 @@
     </head>
 
     <body>
+    <a href="index.php">Home</a>
+    <a href="profile.php">Profile</a>
+    <a href="editProfile.php">Edit</a>
+    <a href="signIn.php">In</a>
+    <a href="signOut.php">Out</a>
+    <a href="signUp.php">Up</a>
+    <a href="upload.php">Upload</a>
         <h3>Sign Up</h3>
 
         <form method="post" name="signUp" class="form">

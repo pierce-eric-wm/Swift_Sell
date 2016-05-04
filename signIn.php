@@ -1,3 +1,10 @@
+<a href="index.php">Home</a>
+<a href="profile.php">Profile</a>
+<a href="editProfile.php">Edit</a>
+<a href="signIn.php">In</a>
+<a href="signOut.php">Out</a>
+<a href="signUp.php">Up</a>
+<a href="upload.php">Upload</a>
 <?php
     // Start the sessions and connect to the database
     session_start();
