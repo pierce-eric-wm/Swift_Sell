@@ -1,7 +1,12 @@
 <?php
-require_once ("connect.php");
-require_once ("session.php");
+    // Establish Connections and Sessions
+    session_start();
+    require_once('connect.php');
+
+    $userid = $_SESSION['userid'];
+    $username = $_SESSION['username'];
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,13 +15,18 @@ require_once ("session.php");
     </head>
 
     <body>
-    <a href="index.php">Home</a>
-    <a href="profile.php">Profile</a>
-    <a href="editProfile.php">Edit</a>
-    <a href="signIn.php">In</a>
-    <a href="signOut.php">Out</a>
-    <a href="signUp.php">Up</a>
-    <a href="upload.php">Upload</a>
+        <h3>Welcome to your profile page
+            <?php
+                echo "$username";
+            ?>
+        </h3>
+        <br>
+        <a href="index.php">Home Page</a>
+        <br>
+        <a href="upload.php">Upload</a>
+        <br>
+        <a href="signOut.php">Sign Out</a>
+
     <?php
     if (!isset($_SESSION['user_id'])) {
         echo '<p class="login">Please <a href="signIn.php">Sign In</a> to access this page.</p>';
@@ -66,8 +76,6 @@ require_once ("session.php");
     }
 
     exit();
-    ?>
-
     ?>
     </body>
 </html>
