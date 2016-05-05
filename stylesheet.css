@@ -1,11 +1,14 @@
-
+body {
+    background-image: url("wov.png");
+}
 ul {
     list-style-type: none;
     margin: 0;
-    overflow: hidden;
-    width: 100%;
+    background-color: white;
+    position: fixed;
     text-transform: uppercase;
     font-size: 15px;
+    
 }
 
 li {
@@ -39,11 +42,12 @@ a:hover {
     background-color: white;
     position: fixed;
 }
-.homecover {
 
-}
 .headimage {
-
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    padding-top: 70px;
 }
 
 .form{
@@ -64,4 +68,26 @@ a:hover {
     width: 229.2px;
     margin: 15px;
     float: left;
+}
+
+.categories {
+    width: 220px;
+    background-color: #ffffff;
+    height: 400px;
+    margin-top: 70px;
+    position: fixed;
+}
+
+.profile {
+    width: 220px;
+    background-color: #ffffff;
+    height: 220px;
+    float: right;
+    margin-top: 70px;
+}
+
+.casingnav {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
 }
