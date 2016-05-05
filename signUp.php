@@ -1,6 +1,6 @@
 <?php
     // Start the sessions and connect to the database
-    session_start();
+    require_once ('session.php');
     require_once('connect.php');
 
     // Once the form has been submited...
