@@ -1,6 +1,23 @@
 body {
-    background-image: url("wov.png");
+    background-image: url("images/wov.png");
+    font-family: chaparral pro;
 }
+
+.casingnav {
+     margin-left: auto;
+     margin-right: auto;
+     width: 1000px;
+ }
+
+.topbar {
+    height: 60px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #4a5c68;
+    background-color: white;
+    position: fixed;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -31,16 +48,9 @@ li:hover {
     border-bottom:3px solid #4a5c68;
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: none;
-}
-.topbar {
-    height: 60px;
-    border-bottom: 2px;
-    border-bottom-style: solid;
-    border-color: #4a5c68;
-    background-color: white;
-    position: fixed;
 }
 
 .headimage {
@@ -50,15 +60,60 @@ a:hover {
     padding-top: 70px;
 }
 
-.form{
-    color: black;
-    z-index: -1;
-    position: center;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
+.categories {
+    width: 220px;
+    background-color: #ffffff;
+    height: 425px;
+    margin-top: 70px;
+    position: fixed;
+    border-bottom: 2px;
+    border-right: 2px;
+    border-top: 2px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-color: #4a5c68;
+}
+
+.categoriefill {
+    background-color: #00e3fc;
     text-align: center;
 }
+
+.categoriefill:hover {
+    background-color: #00B3FF;
+}
+
+.categorybody {
+    background-color: white;
+    width: 1000px;
+    height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.profile {
+    width: 220px;
+    background-color: #ffffff;
+    height: 220px;
+    float: right;
+    margin-top: 70px;
+    border-bottom: 2px;
+    border-left: 2px;
+    border-top: 2px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-color: #4a5c68;
+}
+
+.profileimg {
+    height: 100px;
+    width: 100px;
+    border-radius: 40px;
+}
+
+
 
 .productsContainer {
     width: 90%;
@@ -69,25 +124,12 @@ a:hover {
     margin: 15px;
     float: left;
 }
-
-.categories {
-    width: 220px;
-    background-color: #ffffff;
-    height: 400px;
-    margin-top: 70px;
-    position: fixed;
-}
-
-.profile {
-    width: 220px;
-    background-color: #ffffff;
-    height: 220px;
-    float: right;
-    margin-top: 70px;
-}
-
-.casingnav {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-}
+.form{
+     color: black;
+     z-index: -1;
+     position: center;
+     margin-top: 10%;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+ }
