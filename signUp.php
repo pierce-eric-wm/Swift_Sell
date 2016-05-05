@@ -111,12 +111,16 @@
             </select>
             <label for="catagory">Catagory</label>
             <br>
+            <input type="file" name="profileImage">
+            <label for="profileImage">Profile Image</label>
+            <br>
             <input type="password" name="password">
             <label for="password">Password</label>
             <br>
             <input type="password" name="confirmPassword">
             <label for="confirmPassword">Confirm Password</label>
             <br>
+
 
             <button type="submit" name="signUp" value="1">Sign Up</button>
         </form>
