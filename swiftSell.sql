@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS `swiftSell`.`users` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
   `phoneNumber` BIGINT(12) NOT NULL,
   `cardNumber` BIGINT(20) NOT NULL,
-  `catagory` VARCHAR(45) NOT NULL,
+  `catagory` ENUM('Auto','Clothing','Technology','Household','Games','Tools','Sport') NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`userid`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
@@ -80,12 +80,14 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `swiftSell`.`products` (
   `productid` INT(11) NOT NULL AUTO_INCREMENT,
-  `productName` VARCHAR(45) NOT NULL,
-  `productImage` VARCHAR(45) NOT NULL,
-  `productDescrition` VARCHAR(45) NOT NULL,
-  `productPrice` INT(11) NOT NULL,
-  `productLikes` INT(11) NULL DEFAULT NULL,
   `users_userid` INT(11) NOT NULL,
+  `users_username` VARCHAR(45) NOT NULL,
+  `productName` VARCHAR(45) NOT NULL,
+  `productPrice` INT(11) NOT NULL,
+  `productDescrition` VARCHAR(45) NOT NULL,
+  `productCatagory` ENUM('Auto','Clothing','Technology','Household','Games','Tools','Sport') NOT NULL,
+  `productLikes` INT(11) NOT NULL DEFAULT NULL,
+  `productImage` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`productid`),
   INDEX `fk_products_users1_idx` (`users_userid` ASC),
   CONSTRAINT `fk_products_users1`
