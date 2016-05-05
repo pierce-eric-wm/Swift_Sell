@@ -82,14 +82,21 @@
     </head>
 
     <body>
-    <a href="index.php">Home</a>
+    <a href="index.php">Swift Sell</a>
+    <br>
     <a href="profile.php">Profile</a>
-    <a href="editProfile.php">Edit</a>
-    <a href="signIn.php">In</a>
-    <a href="signOut.php">Out</a>
-    <a href="signUp.php">Up</a>
+    <br>
+    <a href="editProfile.php">Edit Profile</a>
+    <br>
+    <a href="signIn.php">Sign In</a>
+    <br>
+    <a href="signOut.php">Sign Out</a>
+    <br>
+    <a href="signUp.php">Sign Up</a>
+    <br>
     <a href="upload.php">Upload</a>
-        <h3>Sign Up</h3>
+
+    <h3>Sign Up</h3>
 
         <form method="post" name="signUp">
             <input type="text" name="username">

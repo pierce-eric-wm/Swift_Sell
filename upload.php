@@ -70,7 +70,21 @@
         <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
-        <h3>Upload Product</h3>
+    <a href="index.php">Swift Sell</a>
+    <br>
+    <a href="profile.php">Profile</a>
+    <br>
+    <a href="editProfile.php">Edit Profile</a>
+    <br>
+    <a href="signIn.php">Sign In</a>
+    <br>
+    <a href="signOut.php">Sign Out</a>
+    <br>
+    <a href="signUp.php">Sign Up</a>
+    <br>
+    <a href="upload.php">Upload</a>
+
+    <h3>Upload Product</h3>
 
         <?php
             if (!isset($_SESSION['signIn'])) {

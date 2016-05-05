@@ -27,7 +27,7 @@
         <a href="upload.php">Upload</a>
 
         <?php
-            /* Get 10 of the newest products
+        
             $query = "SELECT * FROM products ORDER BY id DESC  LIMIT 10 ";
             $stmt =  $dbh->prepare($query);
             $stmt->execute();
@@ -44,7 +44,7 @@
                 echo '<strong>Description:</strong>' .$row['productLikes'] .'<br />';
                 echo '<strong>Likes:</strong>' .$row['productDescription'] .'<br />';
                 echo '<strong>Seller:</strong>' .$row['username'] .'<br />';
-                echo '<strong>Catagorie:</strong>'.$row['productCategorie']. '<br />'
+                echo '<strong>Catagorie:</strong>'.$row['productCategorie']. '<br />';
                 if (is_file($filepath) && filesize($filepath) > 0) {
                     echo '<td><img src="' . $filepath . '"alt="Find Image"  class="image"/></td>';
                     echo '</table>';
@@ -60,7 +60,7 @@
             $stmt =  $dbh->prepare($query);
             $stmt->execute();
             $data = $stmt->fetchAll();
-            }*/
+            }
         ?>
     </body>
 </html>
