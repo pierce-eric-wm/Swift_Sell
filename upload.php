@@ -16,8 +16,8 @@
         $catagory = $_POST['catagory'];
 
         // Pull the info about the image of product
-        $imageName = $_FILES['image'] ['name'];
-        $imageSize = $_FILES['image'] ['size'];
+        $imageName = $_FILES['image']['name'];
+        $imageSize = $_FILES['image']['size'];
 
         // Checks to make sure user has filled out all fields
         if (!empty($name) && !empty($price) && !empty($description) && !empty($catagory) && !empty($imageName)) {
