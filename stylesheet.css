@@ -1,6 +1,4 @@
-body {
-    background-image: url("wov.png");
-}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -41,31 +39,29 @@ a:hover {
     background-color: white;
     position: fixed;
 }
-.headimage {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-    padding-top: 70px;
-    
+.homecover {
 
 }
-.casingnav {
+.headimage {
+
+}
+
+.form{
+    color: black;
+    z-index: -1;
+    position: center;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
-    width: 1000px;
+    text-align: center;
 }
-.categories {
-    width: 220px;
-    background-color: #ffffff;
-    height: 400px;
+
+.productsContainer {
+    width: 90%;
+}
+
+.product {
+    width: 229.2px;
+    margin: 15px;
     float: left;
-    margin-top: 70px;
-    position: fixed;
-}
-.profile {
-    width: 220px;
-    background-color: #ffffff;
-    height: 220px;
-    float: right;
-    margin-top: 70px;
 }
