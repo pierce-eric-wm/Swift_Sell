@@ -1,5 +1,5 @@
 body {
-    background-image: url("images/wov.png");
+    background-image: url("siteImages/greyzz.png");
     font-family: chaparral pro;
 }
 
@@ -13,7 +13,7 @@ body {
     height: 60px;
     border-bottom: 2px;
     border-bottom-style: solid;
-    border-color: #4a5c68;
+    border-color: #eca400;
     background-color: white;
     position: fixed;
 }
@@ -45,7 +45,7 @@ li a {
 }
 
 li:hover {
-    border-bottom:3px solid #4a5c68;
+    border-bottom:3px solid #eca400;
     text-decoration: none;
 }
 
@@ -72,7 +72,7 @@ a:hover {
     border-top-style: solid;
     border-right-style: solid;
     border-bottom-style: solid;
-    border-color: #4a5c68;
+    border-color: #eca400;
 }
 
 .categoriefill {
@@ -91,6 +91,8 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    border-color: #00B3FF;
+    border-style: solid;
 }
 .profile {
     width: 220px;
@@ -133,3 +135,7 @@ a:hover {
      margin-right: auto;
      text-align: center;
  }
+.headimage
+{
+    background-color: #00B3FF;
+}

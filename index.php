@@ -22,10 +22,10 @@
         <div class="topbar">
             <div class="casingnav">
                 <ul>
-                    <img src="images/SwiftSell.png" style="height:58px;">
+                    <img src="siteImages/SwiftSell.png" style="height:58px;">
                     <li><a href="#" style="color: #4a5c68;">About</a>
                     <li><a href="#" style="color: #4a5c68;">example</a></li>
-                    <li class="navactive"><a href="Home.php" style="color: #4a5c68;">Home</a></li>
+                    <li class="navactive"><a href="index.php" style="color: #4a5c68;">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -124,7 +124,19 @@
 
         <div class="headimage">
 
-            <img src="images/night_city_lights.jpg" style="height: 300px; width: 100%;">
+            <div class="headcover" style="height: 300px; width: 100%;">
+
+            <?php
+
+            $query = "SELECT * FROM users ORDER BY id DESC  LIMIT 1 ";
+            $stmt =  $dbh->prepare($query);
+            $stmt->execute();
+            $id = $stmt->fetchAll();
+
+            foreach ($id as $row) {
+                echo '<p>' .$row['username'].'</p>';
+            }
+            ?>
 
         </div>
 
