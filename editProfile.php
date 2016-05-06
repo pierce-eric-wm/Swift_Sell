@@ -1,3 +1,19 @@
+<body>
+<a href="index.php">Swift Sell</a>
+<br>
+<a href="profile.php">Profile</a>
+<br>
+<a href="editProfile.php">Edit Profile</a>
+<br>
+<a href="signIn.php">Sign In</a>
+<br>
+<a href="signOut.php">Sign Out</a>
+<br>
+<a href="signUp.php">Sign Up</a>
+<br>
+<a href="upload.php">Upload</a>
+
+
 <?php
 // Start the session
 
@@ -36,7 +52,7 @@ if (isset($_POST['submit'])) {
             echo '<p class="error">You must enter all of the profile data (the picture is optional).</p>';
         }
     }
-} // End of check for form submission
+// End of check for form submission
 else {
     // Grab the profile data from the database
     $query = "SELECT * FROM users WHERE user_id = '" . $_SESSION['user_id'] . "'";
@@ -63,7 +79,7 @@ else {
     <fieldset>
         <legend>Personal Information</legend>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="<?php if (!empty($username) echo $username; ?>" /><br />
+        <input type="text" id="username" name="username" value="<?php if (!empty($username)) echo $username;?>" /><br />
         <label for="email">Email:</label>
         <input type="text" id="email" name="email" value="<?php if (!empty($email)) echo $email; ?>" /><br />
         <label for="password">Password:</label>

@@ -1,7 +1,22 @@
+<a href="index.php">Swift Sell</a>
+<br>
+<a href="profile.php">Profile</a>
+<br>
+<a href="editProfile.php">Edit Profile</a>
+<br>
+<a href="signIn.php">Sign In</a>
+<br>
+<a href="signOut.php">Sign Out</a>
+<br>
+<a href="signUp.php">Sign Up</a>
+<br>
+<a href="upload.php">Upload</a>
+
 <?php
     // Start the sessions and connect to the database
     session_start();
     require_once('connect.php');
+    require_once ('session.php');
 
     // Checks to see if user if allready signed in and if so then it takes them to profile password_get_info
     if (@$_SESSION['signIn'] == true) {

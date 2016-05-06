@@ -1,6 +1,6 @@
 <?php
     // Start the sessions and connect to the database
-    session_start();
+    require_once ('session.php');
     require_once('connect.php');
 
     // Once the form has been submited...
@@ -15,52 +15,75 @@
         $password = $_POST['password'];
         $confirmPassword = $_POST['confirmPassword'];
 
+        // Define the Image File stuff
+        $imageName = $_FILES['image'] ['name'];
+        $imageSize = $_FILES['image'] ['size'];
+
         // Makes sure user fills out all of the forms
-        if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($password) && !empty($confirmPassword)) {
+        if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($imageName) && !empty($password) && !empty($confirmPassword)) {
             // Make sure the user has the same passwords
             if ($password == $confirmPassword) {
-                // If everything is good then we can insert the user data into the databse
-                $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :password)");
-                $query->execute(
-                    array(
-                        'userid' => 0,
-                        'username' => $username,
-                        'email' => $email,
-                        'address' => $address,
-                        'phoneNumber' => $phoneNumber,
-                        'cardNumber' => $cardNumber,
-                        'catagory' => $catagory,
-                        'password' => $password
-                    )
-                );
+                // Make sure the profile image is not bigger than 10Mb
+                if ($imageSize < 10485760) {
+                    // Define the path for the image to go
+                    $imagePath = "profileImages/$imageName";
 
-                $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
-                $query->execute(
-                    array(
-                        'email' => $email
-                    )
-                );
-                $userid = $query->fetch();
+                    if (move_uploaded_file($_FILES['profilepic']['tmp_name'], $imagePath)) {
+                        // If everything is good then we can insert the user data into the databse
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :profileImage, :password)");
+                        $query->execute(
+                            array(
+                                'userid' => 0,
+                                'username' => $username,
+                                'email' => $email,
+                                'address' => $address,
+                                'phoneNumber' => $phoneNumber,
+                                'cardNumber' => $cardNumber,
+                                'catagory' => $catagory,
+                                'password' => $password,
+                                'profileImage' => $imageName
+                            )
+                        );
 
-                // If we see the user has been added then set things up
-                if ($userid) {
-                    // We then stored user data in PHP Session
-                    $_SESSION['userid'] = $userid;
-                    $_SESSION['username'] = $username;
-                    $_SESSION['email'] = $email;
-                    $_SESSION['catagory'] = $catagory;
-                    $_SESSION['address'] = $address;
-                    $_SESSION['signIn'] = true;
 
-                    // Email the user a confirmation of signing up
-                    $to = "$email";
-                    $subject = "Swift Sell Sign Up Confirmation";
-                    $txt = "Hello $username,<br>We are emailing you to confirm your sign up at Swift Sell";
+                        $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
+                        $query->execute(
+                            array(
+                                'email' => $email
+                            )
+                        );
+                        $userid = $query->fetch();
 
-                    mail($to,$subject,$txt);
+                        // If we see the user has been added then set things up
+                        if ($userid) {
+                            // We then stored user data in PHP Session
+                            $_SESSION['userid'] = $userid;
+                            $_SESSION['username'] = $username;
+                            $_SESSION['email'] = $email;
+                            $_SESSION['catagory'] = $catagory;
+                            $_SESSION['address'] = $address;
+                            $_SESSION['signIn'] = true;
 
-                    // Take the user to the profile page
-                    header('location: profile.php');
+                            // Email the user a confirmation of signing up
+                            $to = "$email";
+                            $subject = "Swift Sell Sign Up Confirmation";
+                            $txt = "Hello $username,<br>We are emailing you to confirm your sign up at Swift Sell";
+
+                            mail($to,$subject,$txt);
+
+                            // Take the user to the profile page
+                            header('location: profile.php');
+                        }
+                        else {
+                            echo "<p>We coundent grab your profile data</p>";
+                        }
+                    }
+                    else {
+                        echo "<p>Your profile image did not upload</p>";
+                    }
+                }
+                else {
+                    echo "<p>Profile image must be under 10Mb</p>";
                 }
             }
             else {
@@ -82,7 +105,21 @@
     </head>
 
     <body>
-        <h3>Sign Up</h3>
+    <a href="index.php">Swift Sell</a>
+    <br>
+    <a href="profile.php">Profile</a>
+    <br>
+    <a href="editProfile.php">Edit Profile</a>
+    <br>
+    <a href="signIn.php">Sign In</a>
+    <br>
+    <a href="signOut.php">Sign Out</a>
+    <br>
+    <a href="signUp.php">Sign Up</a>
+    <br>
+    <a href="upload.php">Upload</a>
+
+    <h3>Sign Up</h3>
 
         <form method="post" name="signUp">
             <input type="text" name="username">
@@ -110,6 +147,9 @@
                 <option value="Sport">Sport</option>
             </select>
             <label for="catagory">Catagory</label>
+            <br>
+            <input type="file" name="image">
+            <label for="profilepic">Profile Image</label>
             <br>
             <input type="password" name="password">
             <label for="password">Password</label>
