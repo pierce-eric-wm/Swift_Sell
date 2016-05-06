@@ -50,7 +50,7 @@
             if (isset($_SESSION['username'])) {
             echo ' <a href="profile.php">View Profile</a><br />';
             echo ' <a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a>';
-            //Show 10 products tied to the categories that the user picked
+            //Show 10 products
             $query = "SELECT * FROM products ORDER BY id DESC  LIMIT 10 ";
             $stmt =  $dbh->prepare($query);
             $stmt->execute();

@@ -1,6 +1,6 @@
 <?php
     // Establish Connections and Sessions
-   require_once ('session.php');
+session_start();
     require_once('connect.php');
     $success = false;
 

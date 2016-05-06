@@ -1,7 +1,7 @@
 <?php
     // Establish Connections and Sessions
-    require_once('connect.php');
-    require_once ('session.php');
+session_start();
+require_once('connect.php');
 ?>
 <!DOCTYPE html>
 <html>

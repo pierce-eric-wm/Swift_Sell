@@ -13,16 +13,15 @@
 <br>
 <a href="upload.php">Upload</a>
 
-
 <?php
 // Start the session
 
-require_once('session.php');
+session_start();
+require_once ('connect.php');
 
 // Make sure the user is logged in before going any further.
 if (!isset($_SESSION['user_id'])) {
-    echo '<p class="login">Please <a href="login.php">log in</a> to access this page.</p>';
-    exit();
+    echo '<p>Please <a href="signIn.php">Sign in</a> to access this page.</p>';
 }
 
 // Connect to the database
@@ -55,7 +54,7 @@ if (isset($_POST['submit'])) {
 // End of check for form submission
 else {
     // Grab the profile data from the database
-    $query = "SELECT * FROM users WHERE user_id = '" . $_SESSION['user_id'] . "'";
+    $query = "SELECT * FROM users WHERE user_id = '" . $_SESSION['userid'];
 //    $data = mysqli_query($dbc, $query);
 //    $row = mysqli_fetch_array($data);
 
