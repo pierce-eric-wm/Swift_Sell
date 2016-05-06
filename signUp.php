@@ -78,7 +78,7 @@
 <html>
     <head>
         <title>Swift Sell</title>
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="signup.css">
     </head>
 
     <body>
