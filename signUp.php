@@ -27,9 +27,9 @@
                     // Define the path for the image to go
                     $imagePath = "profileImages/$imageName";
 
-                    if (move_uploaded_file($_FILES['profilepic']['tmp_name'], $imagePath)) {
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
                         // If everything is good then we can insert the user data into the databse
-                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :profileImage, :password)");
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, ,:password ,:address, :phoneNumber, :cardNumber, :catagory, :profileImage)");
                         $query->execute(
                             array(
                                 'userid' => 0,
@@ -43,7 +43,6 @@
                                 'profileImage' => $imageName
                             )
                         );
-
 
                         $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
                         $query->execute(
@@ -100,7 +99,7 @@
 <html>
     <head>
         <title>Swift Sell</title>
-        <link rel="stylesheet" href="signup.css">
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
 
     <body>
@@ -147,8 +146,8 @@
             </select>
             <label for="catagory">Catagory</label>
             <br>
-            <input type="file" name="image">
-            <label for="profilepic">Profile Image</label>
+            <input type="file" name="image" id="image">
+            <label for="image">Profile Image</label>
             <br>
             <input type="password" name="password">
             <label for="password">Password</label>
