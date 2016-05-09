@@ -1,6 +1,6 @@
 <?php
-    // Establish Connections and Sessions
-session_start();
+    // EstablishCategoryions and Sessions
+require_once ('session.php');
 require_once('connect.php');
 ?>
 <!DOCTYPE html>
@@ -68,10 +68,10 @@ require_once('connect.php');
                         echo '<tr><td class="label">Card Number</td><td>' . $row['cardNumber'] . '</td></tr>';
                     }
                     if (!empty($row['catagory'])) {
-                        echo '<tr><td class="label">Catagory</td><td>' . $row['catagory'] . '</td></tr>';
+                        echo '<tr><td class="label">Category</td><td>' . $row['catagory'] . '</td></tr>';
                     }
                     if (!empty($row['picture'])) {
-                        echo '<tr><td class="label">Picture:</td><td><img src="' . MM_UPLOADPATH . $row['picture'] .
+                        echo '<tr><td class="label">Picture:</td><td><img src="' . MM_UPLOADPATH . $row['profileImage'] .
                             '" alt="Profile Picture" /></td></tr>';
                     }
                     echo '</table>';

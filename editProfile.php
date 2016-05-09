@@ -16,8 +16,9 @@
 <?php
 // Start the session
 
-session_start();
+require_once ('session.php');
 require_once ('connect.php');
+require_once ('define.php');
 
 // Make sure the user is logged in before going any further.
 if (!isset($_SESSION['user_id'])) {
@@ -34,12 +35,56 @@ if (isset($_POST['submit'])) {
     $address= trim($_POST['address']);
     $phoneNumber= trim($_POST['phoneNumber']);
     $cardNumber= trim($_POST['cardNumber']);
+    //Old picture change
+    $new_picture_name = $_FILES['new_picture']['name'];
+    $new_picture_size = $_FILES['new_picture']['size'];
+    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
 
-    // Update the profile data in the database
+    // Update the profile data in the database if (!empty($new_picture)) {
+    $query= "UPDATE users SET username=:username , email=:email, password= :password, address= :address, phoneNumber= :phoneNumber, cardNumber= :cardNumber, profileImage= :new_pictureWHERE user_id = :user_id";
+    $stmt = $dbh->prepare($query);
+    $stmt->execute(array(
+        'username' => $username,
+        'email' => $email,
+        'password' => $password,
+        'address' => $address,
+        'phoneNumber' => $phoneNumber,
+        'cardNumber' => $cardNumber,
+        'new_picture' => $new_picture,
+        'user_id' => $_SESSION['user_id']
+
+    ));
+
+    $query = "UPDATE";
+    if ((($new_picture_type == 'image/gif') || ($new_picture_type == 'image/jpeg') || ($new_picture_type == 'image/pjpeg') ||
+            ($new_picture_type == 'image/png')) && ($new_picture_size > 0) && ($new_picture_size <= MM_MAXFILESIZE) &&
+        ($new_picture_width <= MM_MAXIMGWIDTH) && ($new_picture_height <= MM_MAXIMGHEIGHT)) {
+        if ($_FILES['file']['error'] == 0) {
+            // Move the file to the target upload folder
+            $target = MM_UPLOADPATH . basename($new_picture);
+            if (move_uploaded_file($_FILES['new_picture']['tmp_name'], $target)) {
+                // The new picture file move was successful, now make sure any old picture is deleted
+                if (!empty($old_picture) && ($old_picture != $new_picture)) {
+                    @unlink(MM_UPLOADPATH . $old_picture);
+                }
+            }
+            else {
+                // The new picture file move failed, so delete the temporary file and set the error flag
+                @unlink($_FILES['new_picture']['tmp_name']);
+                $error = true;
+                echo '<p class="error">Sorry, there was a problem uploading your picture.</p>';
+            }
+        }
+    }
     if (!$error) {
         if (!empty($username) && !empty($email) && !empty($password) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber)) {
-            // Only set the picture column if there is a new picture
+
+            if (!empty($new_picture)) {
                 $query = "UPDATE users SET username = '$username', email = '$email', password = '$password', " .
+                    " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber', picture = '$new_picture' WHERE user_id = '" . $_SESSION['user_id'] . "'";
+            }
+            // Only set the picture column if there is a new picture
+               else{ $query = "UPDATE users SET username = '$username', email = '$email', password = '$password', " .
                     " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber' WHERE user_id = '" . $_SESSION['user_id'] . "'";
             }
 
@@ -48,7 +93,7 @@ if (isset($_POST['submit'])) {
             exit();
         }
         else {
-            echo '<p class="error">You must enter all of the profile data (the picture is optional).</p>';
+            echo '<p class="error">You must enter all of the profile data(picture is optional).</p>';
         }
     }
 // End of check for form submission
@@ -65,6 +110,7 @@ else {
         $address = $row['address'];
         $phoneNumber = $row['phoneNumber'];
         $cardNumber = $row['cardNumber'];
+        $old_picture = $row['profileImage'];
 
     }
     else {
@@ -89,6 +135,12 @@ else {
         <input type="text" id="phoneNumber" name="phoneNumber" value="<?php if (!empty($phoneNumber)) echo $phoneNumber; ?>" /><br />
         <label for="cardNumber">CardNumber:</label>
         <input type="text" id="cardNumber" name="cardNumber" value="<?php if (!empty($cardNumber)) echo $cardNumber; ?>" /><br />
+        <input type="hidden" name="old_picture" value="<?php if (!empty($old_picture)) echo $old_picture; ?>" />
+        <label for="new_picture">Picture:</label>
+        <input type="file" id="new_picture" name="new_picture" />
+        <?php if (!empty($old_picture)) {
+            echo '<img class="profile" src="' . MM_UPLOADPATH . $old_picture . '" alt="Profile Picture" />';
+        } ?>
     </fieldset>
     <input type="submit" value="Save Profile" name="submit" />
 </form>

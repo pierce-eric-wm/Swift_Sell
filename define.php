@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: session1
- * Date: 4/27/16
- * Time: 2:53 PM
- */
+define('MM_UPLOADPATH', 'images/');
+define('MM_MAXFILESIZE', 10485760;      // ???? KB
+define('MM_MAXIMGWIDTH', 500);        // 500 pixels
+define('MM_MAXIMGHEIGHT', 500);       // 500 pixels

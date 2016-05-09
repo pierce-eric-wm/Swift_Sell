@@ -1,40 +1,48 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <!-- tell internet to use the latest rendering engine -->
-    <meta http-eqiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width = device-width, initial- scle = 1">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheet.css">
-    <link async href="http://fonts.googleapis.com/css?family=Advent%20Pro" data-generated="http://enjoycss.com"
-          rel="stylesheet" type="text/css"/>
+    <title>Swift Sell</title>
+    <link rel="stylesheet" href="signup.css">
 </head>
+
 <body>
+<h3>Sign Up</h3>
 
-<div class="container">
-    <div class="topbar">
-        <div class="container">
-            <ul>
-                <img src="SwiftSell.png" style="height:58px;">
-                <li><a href="#" style="color: #4a5c68;">About</a>
-                <li><a href="#" style="color: #4a5c68;">example</a></li>
-                <li class="navactive"><a href="Home.php" style="color: #4a5c68;">Home</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+<form method="post" action="signUp.php" name="signUp">
+    <input type="text" name="username">
+    <label for="username">Username</label>
+    <br>
+    <input type="email" name="email">
+    <label for="email">Email</label>
+    <br>
+    <input type="text" name="address">
+    <label for="address">Address</label>
+    <br>
+    <input type="number" name="phoneNumber">
+    <label for="phoneNumber">Phone Number</label>
+    <br>
+    <input type="number" name="cardNumber">
+    <label for="cardNumber">Card Number</label>
+    <br>
+    <select name="catagory">
+        <option value="Auto">Auto</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Technology">Technology</option>
+        <option value="Household">Household</option>
+        <option value="Games">Games</option>
+        <option value="Tools">Tools</option>
+        <option value="Sport">Sport</option>
+    </select>
+    <label for="catagory">Category</label>
+    <br>
+    <input type="password" name="password">
+    <label for="password">Password</label>
+    <br>
+    <input type="password" name="confirmPassword">
+    <label for="confirmPassword">Confirm Password</label>
+    <br>
 
-<div id="form">
-<form method="post" action="#" class="form">
-    <label for="first_name"> First & Last Name: </label>
-    <input type="text" id="first_name" name="first_name"><br>
-    <label for="email">Email: </label>
-    <input type="text" id="email" name="email"><br>
-    <label for=""
+    <button type="submit" name="signUp" value="1">Sign Up</button>
 </form>
-</div>
-
-
 </body>
 </html>

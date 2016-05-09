@@ -1,6 +1,6 @@
 <?php
     // Establish Connections and Sessions
-session_start();
+    require_once ('session.php');
     require_once('connect.php');
     $success = false;
 
@@ -16,8 +16,8 @@ session_start();
         $catagory = $_POST['catagory'];
 
         // Pull the info about the image of product
-        $imageName = $_FILES['image'] ['name'];
-        $imageSize = $_FILES['image'] ['size'];
+        $imageName = $_FILES['image']['name'];
+        $imageSize = $_FILES['image']['size'];
 
         // Checks to make sure user has filled out all fields
         if (!empty($name) && !empty($price) && !empty($description) && !empty($catagory) && !empty($imageName)) {
@@ -29,7 +29,7 @@ session_start();
                 // Move the image onto the server in appropriate location
                 if (move_uploaded_file($_FILES['image'] ['tmp_name'], $imagePath)) {
                     // Insert product data into database
-                    $query = "INSERT INTO products VALUES (:productid, :users_userid, :users_username, :productName, :productPrice, :productDescription, :productCatagory, :productLikes, :productImage)";
+                    $query = "INSERT INTO products VALUES (:productid, :productName, :productImage, :productDescription, :productPrice,  :productCatagory, :productLikes, :productImage)";
                     $stmt = $dbh->prepare($query);
                     $result = $stmt->execute(
                         array(
@@ -44,12 +44,11 @@ session_start();
                             'productImage' => $imageName
                         )
                     );
-
                     $success = true;
                 }
 
                 else {
-                    echo "<p>There was an error with something that we dont know</p>";
+                    echo "<p>There was an error with something that we don't know</p>";
                 }
             }
 

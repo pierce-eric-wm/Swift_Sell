@@ -14,7 +14,7 @@
 
 <?php
     // Start the sessions and connect to the database
-    session_start();
+    require_once ('session.php');
     require_once('connect.php');
 
     // Checks to see if user if allready signed in and if so then it takes them to profile password_get_info
