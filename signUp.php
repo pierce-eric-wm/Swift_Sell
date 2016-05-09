@@ -18,22 +18,17 @@
         // Define the Image File stuff
         $imageName = $_FILES['image'] ['name'];
         $imageSize = $_FILES['image'] ['size'];
-        echo "0";
 
         // Makes sure user fills out all of the forms
         if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($imageName) && !empty($password) && !empty($confirmPassword)) {
-            echo "1";
             // Make sure the user has the same passwords
             if ($password == $confirmPassword) {
-                echo "2";
                 // Make sure the profile image is not bigger than 10Mb
                 if ($imageSize < 10485760) {
-                    echo "3";
                     // Define the path for the image to go
                     $imagePath = "profileImages/$imageName";
 
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
-                        echo "4";
                         // If everything is good then we can insert the user data into the databse
                         $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :image, :password)");
                         $query->execute(

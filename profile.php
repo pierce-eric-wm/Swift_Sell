@@ -23,10 +23,25 @@
     <?php
         // Establish Connections and Sessions
         require_once('connect.php');
-        require_once ('session.php');
+        session_start();
 
         if ($_SESSION['signIn']) {
+            // Set the userid
+            $userid = $_SESSION['userid'];
 
+            // Select the user info
+            $query = $dbh->prepare("SELECT * FROM users WHERE userid = :userid");
+            $query->execute(
+                array(
+                    'userid' => $userid
+                )
+            );
+            $userInfo = $query->fetch();
+
+        }
+
+        else {
+            echo "Log in to see your profile";
         }
     ?>
     </body>
