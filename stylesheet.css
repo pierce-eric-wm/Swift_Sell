@@ -133,3 +133,49 @@ a:hover {
      margin-right: auto;
      text-align: center;
  }
+
+
+.productholder {
+    width: 200px;
+    height: 300px;
+    background-color: #faff00;
+}
+
+.nameholder {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+}
+
+.priceholder {
+    width: 100px;
+    height: 50px;
+    background-color: #30ff00;
+}
+
+.likeholder {
+    width: 100px;
+    height: 50px;
+    background-color: #d208ff;
+}
+
+.categoryholder {
+    width: 100px;
+    height: 50px;
+    background-color: #003fff;
+}
+
+.descriptionholder {
+    width: 200px;
+    height: 100px;
+    background-color: green;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.imgholder {
+    float: right;
+    height: 200px;
+    width: 50px;
+}
+

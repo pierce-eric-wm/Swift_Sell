@@ -123,6 +123,63 @@
                     ?>
                 </div>
             </center>
+
+            <div class="productholder">
+
+                <div class="imgholder">
+                    <img src="images/night_city_lights.jpg" style="height: 200px; width: 50px">
+                </div>
+
+                <div class="nameholder">
+
+                </div>
+
+                <div class="priceholder">
+
+                </div>
+
+                <div class="likeholder">
+
+                </div>
+
+                <div class="categoryholder">
+
+                </div>
+
+                <div class="descriptionholder">
+
+                </div>
+
+            </div>
+
+            <div class="productholder">
+
+                <div class="imgholder">
+                    <img src="images/night_city_lights.jpg" style="height: 200px; width: 50px">
+                </div>
+
+                <div class="nameholder">
+
+                </div>
+
+                <div class="priceholder">
+
+                </div>
+
+                <div class="likeholder">
+
+                </div>
+
+                <div class="categoryholder">
+
+                </div>
+
+                <div class="descriptionholder">
+
+                </div>
+
+            </div>
+
         </div>
     </body>
 </html>
