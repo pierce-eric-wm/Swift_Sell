@@ -26,7 +26,7 @@
         require_once ('session.php');
 
         if ($_SESSION['signIn']) {
-            
+
         }
     ?>
     </body>
