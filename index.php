@@ -117,6 +117,8 @@
             <a href="signIn.php">Sign In</a>
             <a href="signOut.php">Sign Out</a>
             <a href="signUp.php">Sign Up</a>
+            <a href="upload.php">Upload</a>
+
 
 
 
@@ -167,11 +169,6 @@
                     ?>
                 </div>
             </center>
-
-
-
-            <a href="upload.php">Upload</a>
-
         </div>
 
 
