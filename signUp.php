@@ -33,7 +33,7 @@
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
 
                         // If everything is good then we can insert the user data into the databse
-                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :image, :password)");
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :password, :address, :phoneNumber, :cardNumber, :catagory, :image,)");
                         $query->execute(
                             array(
                                 'userid' => 0,
