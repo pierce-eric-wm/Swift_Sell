@@ -1,4 +1,71 @@
-<?php
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swift Sell</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+
+    <body>
+    <a href="index.php">Swift Sell</a>
+    <br>
+    <a href="profile.php">Profile</a>
+    <br>
+    <a href="editProfile.php">Edit Profile</a>
+    <br>
+    <a href="signIn.php">Sign In</a>
+    <br>
+    <a href="signOut.php">Sign Out</a>
+    <br>
+    <a href="signUp.php">Sign Up</a>
+    <br>
+    <a href="upload.php">Upload</a>
+
+    <h3>Sign Up</h3>
+
+        <form method="post" name="signUp" enctype="multipart/form-data">
+            <input type="text" name="username">
+            <label for="username">Username</label>
+            <br>
+            <input type="email" name="email">
+            <label for="email">Email</label>
+            <br>
+            <input type="text" name="address">
+            <label for="address">Address</label>
+            <br>
+            <input type="number" name="phoneNumber">
+            <label for="phoneNumber">Phone Number</label>
+            <br>
+            <input type="number" name="cardNumber">
+            <label for="cardNumber">Card Number</label>
+            <br>
+            <select name="catagory">
+                <option value="Auto">Auto</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Technology">Technology</option>
+                <option value="Household">Household</option>
+                <option value="Games">Games</option>
+                <option value="Tools">Tools</option>
+                <option value="Sport">Sport</option>
+            </select>
+            <label for="catagory">Catagory</label>
+            <br>
+            <input type="file" name="image" id="image">
+            <label for="image">Profile Image</label>
+            <br>
+            <input type="password" name="password">
+            <label for="password">Password</label>
+            <br>
+            <input type="password" name="confirmPassword">
+            <label for="confirmPassword">Confirm Password</label>
+            <br>
+
+            <button type="submit" name="signUp" value="1">Sign Up</button>
+        </form>
+
+    <?php
     // Start the sessions and connect to the database
     require_once ('session.php');
     require_once('connect.php');
@@ -80,71 +147,7 @@
             echo "<p>You need to fill out all of the form fields</p>";
         }
     }
-?>
+    ?>
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Swift Sell</title>
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-
-    <body>
-    <a href="index.php">Swift Sell</a>
-    <br>
-    <a href="profile.php">Profile</a>
-    <br>
-    <a href="editProfile.php">Edit Profile</a>
-    <br>
-    <a href="signIn.php">Sign In</a>
-    <br>
-    <a href="signOut.php">Sign Out</a>
-    <br>
-    <a href="signUp.php">Sign Up</a>
-    <br>
-    <a href="upload.php">Upload</a>
-
-    <h3>Sign Up</h3>
-
-        <form method="post" name="signUp" enctype="multipart/form-data">
-            <input type="text" name="username">
-            <label for="username">Username</label>
-            <br>
-            <input type="email" name="email">
-            <label for="email">Email</label>
-            <br>
-            <input type="text" name="address">
-            <label for="address">Address</label>
-            <br>
-            <input type="number" name="phoneNumber">
-            <label for="phoneNumber">Phone Number</label>
-            <br>
-            <input type="number" name="cardNumber">
-            <label for="cardNumber">Card Number</label>
-            <br>
-            <select name="catagory">
-                <option value="Auto">Auto</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Technology">Technology</option>
-                <option value="Household">Household</option>
-                <option value="Games">Games</option>
-                <option value="Tools">Tools</option>
-                <option value="Sport">Sport</option>
-            </select>
-            <label for="catagory">Catagory</label>
-            <br>
-            <input type="file" name="image" id="image">
-            <label for="image">Profile Image</label>
-            <br>
-            <input type="password" name="password">
-            <label for="password">Password</label>
-            <br>
-            <input type="password" name="confirmPassword">
-            <label for="confirmPassword">Confirm Password</label>
-            <br>
-
-            <button type="submit" name="signUp" value="1">Sign Up</button>
-        </form>
     </body>
 </html>
