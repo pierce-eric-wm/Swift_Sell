@@ -14,7 +14,7 @@
 
 <?php
     // Start the sessions and connect to the database
-    require_once ('session.php');
+    session_start();
     require_once('connect.php');
 
     // Checks to see if user if allready signed in and if so then it takes them to profile password_get_info
@@ -30,7 +30,6 @@
 
         // Makes sure the user fills out all of the forms
         if (!empty($email) && !empty($password)) {
-
             // If they have entered in all the form fields then we check to see if they are a user
             $query = $dbh->prepare("SELECT userid, username, email, catagory, address FROM users WHERE email = :email AND password = :password");
             $query->execute(

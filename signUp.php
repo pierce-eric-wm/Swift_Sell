@@ -1,89 +1,4 @@
-<?php
-    // Start the sessions and connect to the database
-    require_once ('session.php');
-    require_once('connect.php');
 
-    // Once the form has been submited...
-    if (@$_POST['signUp']) {
-        // Define the POST variables
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $phoneNumber = $_POST['phoneNumber'];
-        $cardNumber = $_POST['cardNumber'];
-        $catagory = $_POST['catagory'];
-        $password = $_POST['password'];
-        $confirmPassword = $_POST['confirmPassword'];
-
-        // Define the Image File stuff
-        $imageName = $_FILES['image'] ['name'];
-        $imageSize = $_FILES['image'] ['size'];
-
-        // Makes sure user fills out all of the forms
-        if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($imageName) && !empty($password) && !empty($confirmPassword)) {
-            // Make sure the user has the same passwords
-            if ($password == $confirmPassword) {
-
-                // Make sure the profile image is not bigger than 10Mb
-                if ($imageSize < 10485760) {
-
-                    // Define the path for the image to go
-                    $imagePath = "profileImages/$imageName";
-
-                    if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
-
-                        // If everything is good then we can insert the user data into the databse
-                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :password, :address, :phoneNumber, :cardNumber, :catagory, :image,)");
-                        $query->execute(
-                            array(
-                                'userid' => 0,
-                                'username' => $username,
-                                'email' => $email,
-                                'address' => $address,
-                                'phoneNumber' => $phoneNumber,
-                                'cardNumber' => $cardNumber,
-                                'catagory' => $catagory,
-                                'image' => $imageName,
-                                'password' => $password,
-                            )
-                        );
-
-                        $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
-                        $query->execute(
-                            array(
-                                'email' => $email
-                            )
-                        );
-                        $userid = $query->fetch();
-
-                        // We then stored user data in PHP Session
-                        $_SESSION['userid'] = $userid;
-                        $_SESSION['username'] = $username;
-                        $_SESSION['email'] = $email;
-                        $_SESSION['catagory'] = $catagory;
-                        $_SESSION['address'] = $address;
-                        $_SESSION['signIn'] = true;
-
-                        // Take the user to the profile page
-                        header('location: profile.php');
-                    }
-                    else {
-                        echo "<p>Your profile image did not upload</p>";
-                    }
-                }
-                else {
-                    echo "<p>Profile image must be under 10Mb</p>";
-                }
-            }
-            else {
-                echo "<p>Make sure your passwords match</p>";
-            }
-        }
-        else {
-            echo "<p>You need to fill out all of the form fields</p>";
-        }
-    }
-?>
 
 
 <!DOCTYPE html>
@@ -149,5 +64,90 @@
 
             <button type="submit" name="signUp" value="1">Sign Up</button>
         </form>
+
+    <?php
+    // Start the sessions and connect to the database
+    require_once ('session.php');
+    require_once('connect.php');
+
+    // Once the form has been submited...
+    if (@$_POST['signUp']) {
+        // Define the POST variables
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $phoneNumber = $_POST['phoneNumber'];
+        $cardNumber = $_POST['cardNumber'];
+        $catagory = $_POST['catagory'];
+        $password = $_POST['password'];
+        $confirmPassword = $_POST['confirmPassword'];
+
+        // Define the Image File stuff
+        $imageName = $_FILES['image'] ['name'];
+        $imageSize = $_FILES['image'] ['size'];
+
+        // Makes sure user fills out all of the forms
+        if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($imageName) && !empty($password) && !empty($confirmPassword)) {
+            // Make sure the user has the same passwords
+            if ($password == $confirmPassword) {
+                // Make sure the profile image is not bigger than 10Mb
+                if ($imageSize < 10485760) {
+                    // Define the path for the image to go
+                    $imagePath = "profileImages/$imageName";
+
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
+                        // If everything is good then we can insert the user data into the databse
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :image, :password)");
+                        $query->execute(
+                            array(
+                                'userid' => 0,
+                                'username' => $username,
+                                'email' => $email,
+                                'address' => $address,
+                                'phoneNumber' => $phoneNumber,
+                                'cardNumber' => $cardNumber,
+                                'catagory' => $catagory,
+                                'image' => $imageName,
+                                'password' => $password,
+                            )
+                        );
+
+                        $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
+                        $query->execute(
+                            array(
+                                'email' => $email
+                            )
+                        );
+                        $userid = $query->fetch();
+
+                        // We then stored user data in PHP Session
+                        $_SESSION['userid'] = $userid;
+                        $_SESSION['username'] = $username;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['catagory'] = $catagory;
+                        $_SESSION['address'] = $address;
+                        $_SESSION['signIn'] = true;
+
+                        // Take the user to the profile page
+                        header('location: profile.php');
+                    }
+                    else {
+                        echo "<p>Your profile image did not upload</p>";
+                    }
+                }
+                else {
+                    echo "<p>Profile image must be under 10Mb</p>";
+                }
+            }
+            else {
+                echo "<p>Make sure your passwords match</p>";
+            }
+        }
+        else {
+            echo "<p>You need to fill out all of the form fields</p>";
+        }
+    }
+    ?>
+
     </body>
 </html>
