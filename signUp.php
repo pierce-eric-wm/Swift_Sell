@@ -9,6 +9,8 @@
     </head>
 
     <body>
+
+    <div id="topbar">
     <a href="index.php">Swift Sell</a>
     <br>
     <a href="profile.php">Profile</a>
@@ -22,6 +24,7 @@
     <a href="signUp.php">Sign Up</a>
     <br>
     <a href="upload.php">Upload</a>
+    </div>
 
     <h3>Sign Up</h3>
 
