@@ -138,14 +138,19 @@ a:hover {
 .productholder {
     width: 350px;
     height: 200px;
+    border-color: #ff9300;
+    border-style: solid;
+    border-width: medium;
 
 }
 
 .productholder2 {
     width: 350px;
     height: 200px;
-
     float: right;
+    border-color: #ffb300;
+    border-style: solid;
+    border-width: medium;
 }
 
 .nameholder {
@@ -173,12 +178,11 @@ a:hover {
 }
 
 .descriptionholder {
-    width: 350px;
-    height: 40px;
+    height: 34px;
     background-color: green;
     text-align: center;
     padding-top: 5px;
-    padding-bottom: 5px;
+
 }
 .imgholder {
     float: right;
