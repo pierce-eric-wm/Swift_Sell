@@ -14,19 +14,17 @@
 <a href="upload.php">Upload</a>
 
 <?php
-// Start the session
-
-require_once ('session.php');
+// Start the session and connect to db and also define image parameters.
 require_once ('connect.php');
+require_once ('session.php');
 require_once ('define.php');
 
 // Make sure the user is logged in before going any further.
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['userid'])) {
     echo '<p>Please <a href="signIn.php">Sign in</a> to access this page.</p>';
 }
 
-// Connect to the database
-
+// Submit form run
 if (isset($_POST['submit'])) {
     // Grab the profile data from the POST
     $username= trim($_POST['username']);
@@ -36,13 +34,13 @@ if (isset($_POST['submit'])) {
     $phoneNumber= trim($_POST['phoneNumber']);
     $cardNumber= trim($_POST['cardNumber']);
     //Old picture change
-    $new_picture_name = $_FILES['new_picture']['name'];
-    $new_picture_size = $_FILES['new_picture']['size'];
-    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
+    $new_picture = $_FILES['new_picture']['name'];
+//    $new_picture_size = $_FILES['new_picture']['size'];
+//    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
 
     // Update the profile data in the database
      if (!empty($new_picture)) {
-         $query = "UPDATE users SET username=:username , email=:email, password= :password, address= :address, phoneNumber= :phoneNumber, cardNumber= :cardNumber, profileImage= :new_picture WHERE user_id = :user_id";
+         $query = "UPDATE users SET username= :username , email= :email, password= :password, address= :address, phoneNumber= :phoneNumber, cardNumber= :cardNumber, profileImage= :new_picture WHERE userid = '" . $_SESSION['userid'] . "'";
          $stmt = $dbh->prepare($query);
          $stmt->execute(array(
              'username' => $username,
@@ -52,14 +50,12 @@ if (isset($_POST['submit'])) {
              'phoneNumber' => $phoneNumber,
              'cardNumber' => $cardNumber,
              'profileImage' => $new_picture,
-             'user_id' => $_SESSION['user_id']
+             'userid' => $_SESSION['userid']
 
          ));
-         $query = "UPDATE";
-         if ((($new_picture_type == 'image/gif') || ($new_picture_type == 'image/jpeg') || ($new_picture_type == 'image/pjpeg') ||
-                 ($new_picture_type == 'image/png')) && ($new_picture_size > 0) && ($new_picture_size <= MM_MAXFILESIZE) &&
-             ($new_picture_width <= MM_MAXIMGWIDTH) && ($new_picture_height <= MM_MAXIMGHEIGHT)
-         ) {
+//         $query = "UPDATE";
+         if ($new_picture)
+          {
              if ($_FILES['file']['error'] == 0) {
                  // Move the file to the target upload folder
                  $target = MM_UPLOADPATH . basename($new_picture);
@@ -81,11 +77,12 @@ if (isset($_POST['submit'])) {
 
                  if (!empty($new_picture)) {
                      $query = "UPDATE users SET username = '$username', email = '$email', password = '$password', " .
-                         " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber', picture = '$new_picture' WHERE user_id = '" . $_SESSION['user_id'] . "'";
+                         " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber', picture = '$new_picture' WHERE userid = '" . $_SESSION['userid'] . "'";
                  } // Only set the picture column if there is a new picture
+
                  else {
                      $query = "UPDATE users SET username = '$username', email = '$email', password = '$password', " .
-                         " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber' WHERE user_id = '" . $_SESSION['user_id'] . "'";
+                         " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber' WHERE userid = '" . $_SESSION['userid'] . "'";
                  }
 
                  // Confirm success with the user
@@ -99,10 +96,10 @@ if (isset($_POST['submit'])) {
 // End of check for form submission
 else {
     // Grab the profile data from the database
-    $query = "SELECT * FROM users WHERE user_id ='" . $_SESSION['user_id'] . "'";
+    $query = "SELECT * FROM users WHERE userid ='" . $_SESSION['userid'] . "'";
     $stmt = $dbh->prepare($query);
     $stmt->execute();
-    $row = $stmt->fetchAll();
+    $row = $stmt->fetch();
 }
     if ($row != NULL) {
         $username = $row['username'];
@@ -117,6 +114,8 @@ else {
     else {
         echo '<p class="error">There was a problem accessing your profile.</p>';
     }
+    echo  "$username .  $email . $password . $address . $phoneNumber  . $cardNumber . $old_picture";
+
 }
 ?>
 
@@ -125,23 +124,20 @@ else {
     <fieldset>
         <legend>Personal Information</legend>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="<?php if (!empty($username)) echo $username;?>" /><br />
+        <input type="text" id="username" name="username" value="" /><br />
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" value="<?php if (!empty($email)) echo $email; ?>" /><br />
+        <input type="text" id="email" name="email" value="" /><br />
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" value="<?php if (!empty($password)) echo $password;?>" /><br />
+        <input type="password" id="password" name="password" value="" /><br />
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" value="<?php if (!empty($address)) echo $address;?>" /><br />
+        <input type="text" id="address" name="address" value="" /><br />
         <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" value="<?php if (!empty($phoneNumber)) echo $phoneNumber; ?>" /><br />
+        <input type="text" id="phoneNumber" name="phoneNumber" value="" /><br />
         <label for="cardNumber">CardNumber:</label>
-        <input type="text" id="cardNumber" name="cardNumber" value="<?php if (!empty($cardNumber)) echo $cardNumber; ?>" /><br />
-        <input type="hidden" name="old_picture" value="<?php if (!empty($old_picture)) echo $old_picture; ?>" />
+        <input type="text" id="cardNumber" name="cardNumber" value="" /><br />
+        <input type="hidden" name="old_picture" value="" />
         <label for="new_picture">Picture:</label>
         <input type="file" id="new_picture" name="new_picture" />
-        <?php if (!empty($old_picture)) {
-            echo '<img class="profile" src="' . MM_UPLOADPATH . $old_picture . '" alt="Profile Picture" />';
-        } ?>
     </fieldset>
     <input type="submit" value="Save Profile" name="submit" />
 </form>
