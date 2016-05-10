@@ -115,20 +115,24 @@
                             )
                         );
 
-                        $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
+                        $query = $dbh->prepare("SELECT * FROM users WHERE email = :email");
                         $query->execute(
                             array(
                                 'email' => $email
                             )
                         );
-                        $userid = $query->fetch();
+                        $userInfo = $query->fetch();
 
                         // We then stored user data in PHP Session
-                        $_SESSION['userid'] = $userid;
-                        $_SESSION['username'] = $username;
-                        $_SESSION['email'] = $email;
-                        $_SESSION['catagory'] = $catagory;
-                        $_SESSION['address'] = $address;
+                        $_SESSION['userid'] = $userInfo['0'];
+                        $_SESSION['username'] = $userInfo['1'];
+                        $_SESSION['email'] = $userInfo['2'];
+                        $_SESSION['address'] = $userInfo['3'];
+                        $_SESSION['phoneNumber'] = $userInfo['4'];
+                        $_SESSION['cardNumber'] = $userInfo['5'];
+                        $_SESSION['catagory'] = $userInfo['6'];
+                        $_SESSION['profileImage'] = $userInfo['7'];
+                        $_SESSION['password'] = $userInfo['8'];
                         $_SESSION['signIn'] = true;
 
                         // Take the user to the profile page
