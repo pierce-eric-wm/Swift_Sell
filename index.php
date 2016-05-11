@@ -71,7 +71,6 @@
         <div class="profile">
             <center>
                 <img class="profileimg" src="images/default-avatar.png" >
-
             </center>
             <a href="profile.php">Profile</a>
             <a href="editProfile.php">Edit Profile</a>
@@ -90,7 +89,6 @@
                 <h1>Welcome</h1>
             </div>
 
-<<<<<<< Updated upstream
                 <div class="productsContainer">
                     <?php
                     // Select all of the rows in product table and put them in an array
@@ -98,21 +96,11 @@
                     $stmt = $dbh->prepare($query);
                     $stmt->execute();
                     $products = $stmt->fetchAll();
-=======
-            <div class="productsContainer">
-                <?php
-                // Select all of the rows in product table and put them in an array
-                $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products";
-                $stmt = $dbh->prepare($query);
-                $stmt->execute();
-                $products = $stmt->fetchAll();
->>>>>>> Stashed changes
 
                 // Use the products table array to display products
                 foreach ($products as $row) {
                     $imagePath = "images/" . $row['productImage'];
 
-<<<<<<< Updated upstream
                         echo '<p>' . $row['users_username'] . ' name' . '</p>';
 
                         echo '<div class="productholder2">';
@@ -144,9 +132,7 @@
                         echo "</div>";
                     }
                     echo '<div style="clear: both;"</div>';
-                    ?>
-                </div>
-=======
+
                     echo '<div class="productholder2">';
 
                         echo '<p>' . $row['users_username'] . '</p>';
@@ -156,7 +142,6 @@
                             echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px; />';
 
                         echo '</div>';
-
 
                         echo '<div class="nameholder">';
                             echo '<p>' . '<b>' . $row['productName'] . '</b>' . '</p>';
@@ -182,9 +167,7 @@
                 echo '<div style="clear: both;"</div>';
                 ?>
             </div>
->>>>>>> Stashed changes
 
-            <!--
             <div class="productholder2">
 
                 <div class="imgholder">
@@ -211,9 +194,7 @@
                 <div class="descriptionholder">
                     <p><b>Description:</b></p>
                 </div>
-
             </div>
-
 
             <div class="productholder">
 
@@ -241,11 +222,7 @@
                 <div class="descriptionholder">
                     <p><b>Description:</b></p>
                 </div>
-
             </div>
-
--->
-
         </div>
     </body>
 </html>
