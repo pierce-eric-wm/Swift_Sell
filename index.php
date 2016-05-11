@@ -117,12 +117,20 @@
                         echo '<p>' . $row['productLikes'] . '</p>';
                         echo "<br>";
                         echo '<p>' . $row['users_username'] . '</p>';
+                        echo "<br>";
+
+
+
                         echo '</div>';
                     }
                     echo '<div style="clear: both;"</div>';
                     ?>
                 </div>
             </center>
+
+            <button>
+                <img src="profileImages/wrx.jpg" width="300px" />
+            </button>
 
             <div class="productholder2">
 
