@@ -103,7 +103,6 @@
                     foreach ($products as $row) {
                         $imagePath = "images/" . $row['productImage'];
 
-<<<<<<< Updated upstream
                         echo '<div class="productholder2">';
 
                             echo '<p>' . $row['users_username'] . '</p>';
@@ -134,29 +133,7 @@
                             echo '<div class="descriptionholder">';
                                 echo '<p>' . $row['productDescription'] . '</p>';
                             echo "</div>";
-
-=======
-                        echo '<div class="product">';
-                        echo '<img' . " " . 'width="' . '100%"' . " " . 'src="'. $imagePath .'"/>';
-                        echo "<br>";
-                        echo '<p>' . $row['productName'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productPrice'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productDescription'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productCatagory'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productLikes'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['users_username'] . '</p>';
-                        echo "<br>";
-                        echo '<form method="post">';
-                        echo '<input type="hidden" name="productid" value="' . $row['productid'] . '">';
-                        echo '<button type="submit" name="addProduct">Add to Cart</button>';
-                        echo '</form>';
->>>>>>> Stashed changes
-                        echo '</div>';
+                        echo "</div>";
                     }
                     echo '<div style="clear: both;"</div>';
                     ?>
