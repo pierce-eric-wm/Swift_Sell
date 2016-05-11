@@ -94,7 +94,7 @@
                 <div class="productsContainer">
                     <?php
                     // Select all of the rows in product table and put them in an array
-                    $query = "SELECT users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products";
+                    $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products";
                     $stmt = $dbh->prepare($query);
                     $stmt->execute();
                     $products = $stmt->fetchAll();
@@ -103,34 +103,42 @@
                     foreach ($products as $row) {
                         $imagePath = "images/" . $row['productImage'];
 
-                        echo '<div class="product">';
-                        echo '<img' . " " . 'width="' . '100%"' . " " . 'src="'. $imagePath .'"/>';
-                        echo "<br>";
-                        echo '<p>' . $row['productName'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productPrice'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productDescription'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productCatagory'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['productLikes'] . '</p>';
-                        echo "<br>";
-                        echo '<p>' . $row['users_username'] . '</p>';
-                        echo "<br>";
+                        echo '<div class="productholder2">';
+
+                            echo '<p>' . $row['users_username'] . '</p>';
+
+                            echo '<div class="imgholder">';
+
+                                echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px; />';
+
+                            echo '</div>';
 
 
+                            echo '<div class="nameholder">';
+                                echo '<p>' . '<b>' . $row['productName'] . '</b>' . '</p>';
+                            echo "</div>";
 
-                        echo '</div>';
+                            echo '<div class="priceholder">';
+                                echo '<p>' . $row['productPrice'] . '</p>';
+                            echo "</div>";
+
+                            echo '<div class="likeholder">';
+                                echo '<p>' . $row['productLikes'] . '</p>';
+                            echo "</div>";
+
+                            echo '<div class="categoryholder">';
+                                echo '<p>' . $row['productCatagory'] . '</p>';
+                            echo "</div>";
+
+                            echo '<div class="descriptionholder">';
+                                echo '<p>' . $row['productDescription'] . '</p>';
+                            echo "</div>";
+                        echo "</div>";
                     }
                     echo '<div style="clear: both;"</div>';
                     ?>
                 </div>
             </center>
-
-            <button>
-                <img src="profileImages/wrx.jpg" width="300px" />
-            </button>
 
             <div class="productholder2">
 

@@ -91,6 +91,8 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .profile {
     width: 220px;
@@ -138,53 +140,68 @@ a:hover {
 .productholder {
     width: 350px;
     height: 200px;
-    border-color: #ff9300;
+    border-color: #eca400;
     border-style: solid;
     border-width: medium;
-
+    color: white;
 }
 
 .productholder2 {
     width: 350px;
     height: 200px;
     float: right;
-    border-color: #ffb300;
+    border-color: #eca400;
     border-style: solid;
     border-width: medium;
+    color: red;
 }
 
 .nameholder {
     width: 150px;
     height: 40px;
-    background-color: red;
+    background-color: #006992;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #eaf8bf;
 }
 
 .priceholder {
     width: 150px;
     height: 40px;
-    background-color: #30ff00;
+    background-color: #006992;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #eaf8bf;
 }
 
 .likeholder {
     width: 150px;
     height: 40px;
-    background-color: #d208ff;
+    background-color: #006992;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #eaf8bf;
 }
 
 .categoryholder {
     width: 150px;
     height: 40px;
-    background-color: #003fff;
+    background-color: #006992;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #eaf8bf;
 }
 
 .descriptionholder {
     height: 34px;
-    background-color: green;
+    background-color: #23395d;
     text-align: center;
     padding-top: 5px;
 
 }
 .imgholder {
     float: right;
+    height: 160px;
+    width: 200px;
 }
 
