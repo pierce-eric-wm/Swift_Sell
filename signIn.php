@@ -1,17 +1,3 @@
-<a href="index.php">Swift Sell</a>
-<br>
-<a href="profile.php">Profile</a>
-<br>
-<a href="editProfile.php">Edit Profile</a>
-<br>
-<a href="signIn.php">Sign In</a>
-<br>
-<a href="signOut.php">Sign Out</a>
-<br>
-<a href="signUp.php">Sign Up</a>
-<br>
-<a href="upload.php">Upload</a>
-
 <?php
     // Start the sessions and connect to the database
     session_start();
@@ -31,7 +17,7 @@
         // Makes sure the user fills out all of the forms
         if (!empty($email) && !empty($password)) {
             // If they have entered in all the form fields then we check to see if they are a user
-            $query = $dbh->prepare("SELECT userid, username, email, catagory, address FROM users WHERE email = :email AND password = :password");
+            $query = $dbh->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
             $query->execute(
                 array(
                     'email' => $email,
@@ -42,12 +28,16 @@
 
             // If a user with that info exits then we store info in SESSIONS and take them to profile
             if ($userInfo) {
-                // Store info in SESSIONS
+                // Store user info in SESSIONS
                 $_SESSION['userid'] = $userInfo['0'];
                 $_SESSION['username'] = $userInfo['1'];
                 $_SESSION['email'] = $userInfo['2'];
-                $_SESSION['catagory'] = $userInfo['3'];
-                $_SESSION['address'] = $userInfo['4'];
+                $_SESSION['address'] = $userInfo['3'];
+                $_SESSION['phoneNumber'] = $userInfo['4'];
+                $_SESSION['cardNumber'] = $userInfo['5'];
+                $_SESSION['catagory'] = $userInfo['6'];
+                $_SESSION['profileImage'] = $userInfo['7'];
+                $_SESSION['password'] = $userInfo['8'];
                 $_SESSION['signIn'] = true;
 
                 // Take the user to the profile page
@@ -72,6 +62,20 @@
 
     <body>
         <h3>Sign In</h3>
+
+        <a href="index.php">Swift Sell</a>
+        <br>
+        <a href="profile.php">Profile</a>
+        <br>
+        <a href="editProfile.php">Edit Profile</a>
+        <br>
+        <a href="signIn.php">Sign In</a>
+        <br>
+        <a href="signOut.php">Sign Out</a>
+        <br>
+        <a href="signUp.php">Sign Up</a>
+        <br>
+        <a href="upload.php">Upload</a>
 
         <form method="post" name="signIn">
             <input type="email" name="email">

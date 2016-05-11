@@ -133,3 +133,58 @@ a:hover {
      margin-right: auto;
      text-align: center;
  }
+
+
+.productholder {
+    width: 350px;
+    height: 200px;
+    border-color: #ff9300;
+    border-style: solid;
+    border-width: medium;
+
+}
+
+.productholder2 {
+    width: 350px;
+    height: 200px;
+    float: right;
+    border-color: #ffb300;
+    border-style: solid;
+    border-width: medium;
+}
+
+.nameholder {
+    width: 150px;
+    height: 40px;
+    background-color: red;
+}
+
+.priceholder {
+    width: 150px;
+    height: 40px;
+    background-color: #30ff00;
+}
+
+.likeholder {
+    width: 150px;
+    height: 40px;
+    background-color: #d208ff;
+}
+
+.categoryholder {
+    width: 150px;
+    height: 40px;
+    background-color: #003fff;
+}
+
+.descriptionholder {
+    height: 34px;
+    background-color: green;
+    text-align: center;
+    padding-top: 5px;
+
+}
+.imgholder {
+    float: right;
+}
+

@@ -1,6 +1,6 @@
 <?php
-    require_once ('session.php');
     require_once('connect.php');
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -117,12 +117,83 @@
                         echo '<p>' . $row['productLikes'] . '</p>';
                         echo "<br>";
                         echo '<p>' . $row['users_username'] . '</p>';
+                        echo "<br>";
+
+
+
                         echo '</div>';
                     }
                     echo '<div style="clear: both;"</div>';
                     ?>
                 </div>
             </center>
+
+            <button>
+                <img src="profileImages/wrx.jpg" width="300px" />
+            </button>
+
+            <div class="productholder2">
+
+                <div class="imgholder">
+                    <img src="images/night_city_lights.jpg" style="height: 160px; width: 200px">
+                </div>
+
+                <div class="nameholder">
+                    <p><b>Name:</b></p>
+                </div>
+
+                <div class="priceholder">
+                    <p><b>Price:</b></p>
+                </div>
+
+                <div class="likeholder">
+                    <p><b>Likes:</b></p>
+
+                </div>
+
+                <div class="categoryholder">
+                    <p><b>Category:</b></p>
+                </div>
+
+                <div class="descriptionholder">
+                    <p><b>Description:</b></p>
+                </div>
+
+            </div>
+
+
+
+            <div class="productholder">
+
+                <div class="imgholder">
+                    <img src="images/night_city_lights.jpg" style="height: 160px; width: 200px">
+                </div>
+
+                <div class="nameholder">
+                    <p><b>Name:</b></p>
+                </div>
+
+                <div class="priceholder">
+                    <p><b>Price:</b></p>
+                </div>
+
+                <div class="likeholder">
+                    <p><b>Likes:</b></p>
+
+                </div>
+
+                <div class="categoryholder">
+                    <p><b>Category:</b></p>
+                </div>
+
+                <div class="descriptionholder">
+                    <p><b>Description:</b></p>
+                </div>
+
+            </div>
+
+
+
         </div>
     </body>
 </html>

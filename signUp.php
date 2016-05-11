@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +6,8 @@
     </head>
 
     <body>
+
+    <div id="topbar">
     <a href="index.php">Swift Sell</a>
     <br>
     <a href="profile.php">Profile</a>
@@ -20,6 +21,7 @@
     <a href="signUp.php">Sign Up</a>
     <br>
     <a href="upload.php">Upload</a>
+    </div>
 
     <h3>Sign Up</h3>
 
@@ -48,7 +50,7 @@
                 <option value="Tools">Tools</option>
                 <option value="Sport">Sport</option>
             </select>
-            <label for="catagory">Category</label>
+            <label for="catagory">Catagory</label>
             <br>
             <input type="file" name="image" id="image">
             <label for="image">Profile Image</label>
@@ -95,7 +97,7 @@
 
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
                         // If everything is good then we can insert the user data into the databse
-                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :password, :address, :phoneNumber, :cardNumber, :catagory, :image, )");
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :image, :password)");
                         $query->execute(
                             array(
                                 'userid' => 0,
@@ -110,20 +112,24 @@
                             )
                         );
 
-                        $query = $dbh->prepare("SELECT userid FROM users WHERE email = :email");
+                        $query = $dbh->prepare("SELECT * FROM users WHERE email = :email");
                         $query->execute(
                             array(
                                 'email' => $email
                             )
                         );
-                        $userid = $query->fetch();
+                        $userInfo = $query->fetch();
 
                         // We then stored user data in PHP Session
-                        $_SESSION['userid'] = $userid;
-                        $_SESSION['username'] = $username;
-                        $_SESSION['email'] = $email;
-                        $_SESSION['category'] = $category;
-                        $_SESSION['address'] = $address;
+                        $_SESSION['userid'] = $userInfo['0'];
+                        $_SESSION['username'] = $userInfo['1'];
+                        $_SESSION['email'] = $userInfo['2'];
+                        $_SESSION['address'] = $userInfo['3'];
+                        $_SESSION['phoneNumber'] = $userInfo['4'];
+                        $_SESSION['cardNumber'] = $userInfo['5'];
+                        $_SESSION['catagory'] = $userInfo['6'];
+                        $_SESSION['profileImage'] = $userInfo['7'];
+                        $_SESSION['password'] = $userInfo['8'];
                         $_SESSION['signIn'] = true;
 
                         // Take the user to the profile page
@@ -146,5 +152,6 @@
         }
     }
     ?>
+
     </body>
 </html>

@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `swiftSell`.`users` (
   `phoneNumber` BIGINT(12) NOT NULL,
   `cardNumber` BIGINT(20) NOT NULL,
   `catagory` ENUM('Auto','Clothing','Technology','Household','Games','Tools','Sport') NOT NULL,
+  `profileImage` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`userid`))
 ENGINE = InnoDB
