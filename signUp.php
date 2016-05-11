@@ -50,7 +50,7 @@
                 <option value="Tools">Tools</option>
                 <option value="Sport">Sport</option>
             </select>
-            <label for="catagory">Catagory</label>
+            <label for="catagory">Category</label>
             <br>
             <input type="file" name="image" id="image">
             <label for="image">Profile Image</label>
