@@ -90,6 +90,7 @@
                 <h1>Welcome</h1>
             </div>
 
+<<<<<<< Updated upstream
                 <div class="productsContainer">
                     <?php
                     // Select all of the rows in product table and put them in an array
@@ -97,11 +98,21 @@
                     $stmt = $dbh->prepare($query);
                     $stmt->execute();
                     $products = $stmt->fetchAll();
+=======
+            <div class="productsContainer">
+                <?php
+                // Select all of the rows in product table and put them in an array
+                $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products";
+                $stmt = $dbh->prepare($query);
+                $stmt->execute();
+                $products = $stmt->fetchAll();
+>>>>>>> Stashed changes
 
-                    // Use the products table array to display products
-                    foreach ($products as $row) {
-                        $imagePath = "images/" . $row['productImage'];
+                // Use the products table array to display products
+                foreach ($products as $row) {
+                    $imagePath = "images/" . $row['productImage'];
 
+<<<<<<< Updated upstream
                         echo '<p>' . $row['users_username'] . ' name' . '</p>';
 
                         echo '<div class="productholder2">';
@@ -135,6 +146,43 @@
                     echo '<div style="clear: both;"</div>';
                     ?>
                 </div>
+=======
+                    echo '<div class="productholder2">';
+
+                        echo '<p>' . $row['users_username'] . '</p>';
+
+                        echo '<div class="imgholder">';
+
+                            echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px; />';
+
+                        echo '</div>';
+
+
+                        echo '<div class="nameholder">';
+                            echo '<p>' . '<b>' . $row['productName'] . '</b>' . '</p>';
+                        echo "</div>";
+
+                        echo '<div class="priceholder">';
+                            echo '<p>' . $row['productPrice'] . '</p>';
+                        echo "</div>";
+
+                        echo '<div class="likeholder">';
+                            echo '<p>' . $row['productLikes'] . '</p>';
+                        echo "</div>";
+
+                        echo '<div class="categoryholder">';
+                            echo '<p>' . $row['productCatagory'] . '</p>';
+                        echo "</div>";
+
+                        echo '<div class="descriptionholder">';
+                            echo '<p>' . $row['productDescription'] . '</p>';
+                        echo "</div>";
+                    echo "</div>";
+                }
+                echo '<div style="clear: both;"</div>';
+                ?>
+            </div>
+>>>>>>> Stashed changes
 
             <!--
             <div class="productholder2">
