@@ -90,7 +90,6 @@
                 <h1>Welcome</h1>
             </div>
 
-            <center>
                 <div class="productsContainer">
                     <?php
                     // Select all of the rows in product table and put them in an array
@@ -103,43 +102,41 @@
                     foreach ($products as $row) {
                         $imagePath = "images/" . $row['productImage'];
 
+                        echo '<p>' . $row['users_username'] . ' name' . '</p>';
+
                         echo '<div class="productholder2">';
 
-                            echo '<p>' . $row['users_username'] . '</p>';
-
                             echo '<div class="imgholder">';
-
-                                echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px; />';
-
-                            echo '</div>';
-
+                            echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px;" />';
+                            echo "</div>";
 
                             echo '<div class="nameholder">';
-                                echo '<p>' . '<b>' . $row['productName'] . '</b>' . '</p>';
+                            echo '<p>' . $row['productName'] . ' product name' . '</p>';
                             echo "</div>";
 
                             echo '<div class="priceholder">';
-                                echo '<p>' . $row['productPrice'] . '</p>';
+                            echo '<p>' . $row['productPrice'] . '$' .'</p>';
                             echo "</div>";
 
                             echo '<div class="likeholder">';
-                                echo '<p>' . $row['productLikes'] . '</p>';
+                            echo '<p>' . $row['productLikes'] . ' likes' . '</p>';
                             echo "</div>";
 
                             echo '<div class="categoryholder">';
-                                echo '<p>' . $row['productCatagory'] . '</p>';
+                            echo '<p>' . $row['productCatagory'] . '</p>';
                             echo "</div>";
 
                             echo '<div class="descriptionholder">';
-                                echo '<p>' . $row['productDescription'] . '</p>';
+                            echo '<p>' . $row['productDescription'] . '</p>';
                             echo "</div>";
+
                         echo "</div>";
                     }
                     echo '<div style="clear: both;"</div>';
                     ?>
                 </div>
-            </center>
 
+            <!--
             <div class="productholder2">
 
                 <div class="imgholder">
@@ -168,7 +165,6 @@
                 </div>
 
             </div>
-
 
 
             <div class="productholder">
@@ -200,7 +196,7 @@
 
             </div>
 
-
+-->
 
         </div>
     </body>
