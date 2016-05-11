@@ -26,7 +26,9 @@ if (!isset($_SESSION['userid'])) {
 
 // Submit form run
 if (isset($_POST['submit'])) {
+    //$userid= $_SESSION['userid'];
     // Grab the profile data from the POST
+    $error = false;
     $username= trim($_POST['username']);
     $email= trim($_POST['email']);
     $password= trim($_POST['password']);
@@ -53,10 +55,8 @@ if (isset($_POST['submit'])) {
              'userid' => $_SESSION['userid']
 
          ));
-//         $query = "UPDATE";
-         if ($new_picture)
-          {
-             if ($_FILES['file']['error'] == 0) {
+         $query = "UPDATE";
+             if ($_FILES['new_picture']['error'] == 0) {
                  // Move the file to the target upload folder
                  $target = MM_UPLOADPATH . basename($new_picture);
                  if (move_uploaded_file($_FILES['new_picture']['tmp_name'], $target)) {
@@ -71,18 +71,18 @@ if (isset($_POST['submit'])) {
                      echo '<p class="error">Sorry, there was a problem uploading your picture.</p>';
                  }
              }
-         }
+
          if (!$error) {
              if (!empty($username) && !empty($email) && !empty($password) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber)) {
 
                  if (!empty($new_picture)) {
-                     $query = "UPDATE users SET username = '$username', email = '$email', password = '$password', " .
-                         " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber', picture = '$new_picture' WHERE userid = '" . $_SESSION['userid'] . "'";
+                     $query = "UPDATE users SET username = :username , email = :email, password = :password, " .
+                         " address = :address, phoneNumber = :phoneNumber, cardNumber = :cardNumber, picture = :new_picture WHERE userid = '" . $_SESSION['userid'] . "'";
                  } // Only set the picture column if there is a new picture
 
                  else {
-                     $query = "UPDATE users SET username = '$username', email = '$email', password = '$password', " .
-                         " address = '$address', phoneNumber = '$phoneNumber', cardNumber = '$cardNumber' WHERE userid = '" . $_SESSION['userid'] . "'";
+                     $query = "UPDATE users SET username = :username, email = :email, password = :password, " .
+                         " address = :address, phoneNumber = :phoneNumber, cardNumber = :cardNumber WHERE userid = '" . $_SESSION['userid'] . "'";
                  }
 
                  // Confirm success with the user
@@ -114,8 +114,6 @@ else {
     else {
         echo '<p class="error">There was a problem accessing your profile.</p>';
     }
-    echo  "$username .  $email . $password . $address . $phoneNumber  . $cardNumber . $old_picture";
-
 }
 ?>
 

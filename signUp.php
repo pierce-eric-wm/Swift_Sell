@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,7 +48,7 @@
                 <option value="Tools">Tools</option>
                 <option value="Sport">Sport</option>
             </select>
-            <label for="catagory">Catagory</label>
+            <label for="catagory">Category</label>
             <br>
             <input type="file" name="image" id="image">
             <label for="image">Profile Image</label>
@@ -97,7 +95,7 @@
 
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
                         // If everything is good then we can insert the user data into the databse
-                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :image, :password)");
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :password, :address, :phoneNumber, :cardNumber, :catagory, :image, )");
                         $query->execute(
                             array(
                                 'userid' => 0,
@@ -124,7 +122,7 @@
                         $_SESSION['userid'] = $userid;
                         $_SESSION['username'] = $username;
                         $_SESSION['email'] = $email;
-                        $_SESSION['catagory'] = $catagory;
+                        $_SESSION['category'] = $category;
                         $_SESSION['address'] = $address;
                         $_SESSION['signIn'] = true;
 
@@ -148,6 +146,5 @@
         }
     }
     ?>
-
     </body>
 </html>
