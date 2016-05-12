@@ -86,8 +86,9 @@ if (isset($_POST['submit'])) {
             'phoneNumber' => $phoneNumber,
             'cardNumber' => $cardNumber,
             'catagory' => $catagory,
-            'password' => $password,
-            'profileImage' => $new_picture
+
+            'profileImage' => $new_picture,
+            'password' => $password
 
 
         ));
