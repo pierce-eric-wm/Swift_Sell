@@ -38,34 +38,47 @@
 
             <hr>
 
-            <div class="categoriefill">
-                <h3>Auto</h3>
-            </div>
+            <a href="categories/auto.php">
+                <div class="categoriefill">
+                    <h3>Auto</h3>
+                </div>
+            </a>
 
-            <div class="categoriefill">
-                <h3>Clothing</h3>
-            </div>
+            <a href="categories/clothing.php">
+                <div class="categoriefill">
+                    <h3>Clothing</h3>
+                </div>
+            </a>
 
-            <div class="categoriefill">
-                <h3>Technology</h3>
-            </div>
+            <a href="categories/technology.php">
+                <div class="categoriefill">
+                    <h3>Technology</h3>
+                </div>
+            </a>
 
-            <div class="categoriefill">
-                <h3>Household</h3>
-            </div>
+            <a href="categories/household.php">
+                <div class="categoriefill">
+                    <h3>Household</h3>
+                </div>
+            </a>
 
-            <div class="categoriefill">
-                <h3>Games</h3>
-            </div>
+            <a href="categories/games.php">
+                <div class="categoriefill">
+                    <h3>Games</h3>
+                </div>
+            </a>
 
-            <div class="categoriefill">
-                <h3>Tools</h3>
-            </div>
+            <a href="categories/tools.php">
+                <div class="categoriefill">
+                    <h3>Tools</h3>
+                </div>
+            </a>
 
-            <div class="categoriefill">
-                <h3>Sport</h3>
-            </div>
-
+            <a href="categories/sport.php">
+                <div class="categoriefill">
+                    <h3>Sport</h3>
+                </div>
+            </a>
         </div>
 
         <div class="profile">
@@ -89,139 +102,58 @@
                 <h1>Welcome</h1>
             </div>
 
-                <div class="productsContainer">
-                    <?php
+            <div class="productsContainer">
+                <?php
                     // Select all of the rows in product table and put them in an array
                     $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products";
                     $stmt = $dbh->prepare($query);
                     $stmt->execute();
                     $products = $stmt->fetchAll();
 
-                // Use the products table array to display products
-                foreach ($products as $row) {
-                    $imagePath = "images/" . $row['productImage'];
+                    // Use the products table array to display products
+                    foreach ($products as $row) {
+                        $imagePath = "images/" . $row['productImage'];
 
-                        echo '<p>' . $row['users_username'] . ' name' . '</p>';
-
-                        echo '<div class="productholder2">';
-
+                        echo '<div class="productholder">';
                             echo '<div class="imgholder">';
-                            echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px;" />';
+                                echo '<img src="' . $imagePath . '" class="productimage">';
                             echo "</div>";
 
                             echo '<div class="nameholder">';
-                            echo '<p>' . $row['productName'] . ' product name' . '</p>';
-                            echo "</div>";
+                                echo '<p><b>Name: </b>' . $row['productName'] . '</p>';
+                            echo '</div>';
 
                             echo '<div class="priceholder">';
-                            echo '<p>' . $row['productPrice'] . '$' .'</p>';
-                            echo "</div>";
+                                echo '<p><b>Price: </b>' . $row['productPrice'] . '</p>';
+                            echo '</div>';
 
                             echo '<div class="likeholder">';
-                            echo '<p>' . $row['productLikes'] . ' likes' . '</p>';
-                            echo "</div>";
+                                echo '<p><b>Likes: </b>' . $row['productLikes'] . '</p>';
+                            echo '</div>';
 
                             echo '<div class="categoryholder">';
-                            echo '<p>' . $row['productCatagory'] . '</p>';
-                            echo "</div>";
+                                echo '<p><b>Category: </b>' . $row['productCatagory'] . '</p>';
+                            echo '</div>';
 
                             echo '<div class="descriptionholder">';
-                            echo '<p>' . $row['productDescription'] . '</p>';
-                            echo "</div>";
+                                echo '<p><b>Description: </b>' . $row['productDescription'] . '</p>';
+                            echo '</div>';
 
+                            echo '<div class="buttonholder">';
+                                echo '<form method="post">';
+                                    echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
+                                    echo '<button type="submit"class="productbutton" name="addProduct">Add to Cart</button>';
+                                echo '</form>';
+
+                                echo '<form method="post">';
+                                    echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
+                                    echo '<button type="submit"class="productbutton" name="likeProduct">Like</button>';
+                                echo '</form>';
+                            echo '</div>';
                         echo "</div>";
                     }
                     echo '<div style="clear: both;"</div>';
-
-                    echo '<div class="productholder2">';
-
-                        echo '<p>' . $row['users_username'] . '</p>';
-
-                        echo '<div class="imgholder">';
-
-                            echo '<img src="'. $imagePath .'" style="height: 160px; width: 200px; />';
-
-                        echo '</div>';
-
-                        echo '<div class="nameholder">';
-                            echo '<p>' . '<b>' . $row['productName'] . '</b>' . '</p>';
-                        echo "</div>";
-
-                        echo '<div class="priceholder">';
-                            echo '<p>' . $row['productPrice'] . '</p>';
-                        echo "</div>";
-
-                        echo '<div class="likeholder">';
-                            echo '<p>' . $row['productLikes'] . '</p>';
-                        echo "</div>";
-
-                        echo '<div class="categoryholder">';
-                            echo '<p>' . $row['productCatagory'] . '</p>';
-                        echo "</div>";
-
-                        echo '<div class="descriptionholder">';
-                            echo '<p>' . $row['productDescription'] . '</p>';
-                        echo "</div>";
-                    echo "</div>";
-                
-                echo '<div style="clear: both;"</div>';
                 ?>
-            </div>
-
-            <div class="productholder2">
-
-                <div class="imgholder">
-                    <img src="images/night_city_lights.jpg" style="height: 160px; width: 200px">
-                </div>
-
-                <div class="nameholder">
-                    <p><b>Name:</b></p>
-                </div>
-
-                <div class="priceholder">
-                    <p><b>Price:</b></p>
-                </div>
-
-                <div class="likeholder">
-                    <p><b>Likes:</b></p>
-
-                </div>
-
-                <div class="categoryholder">
-                    <p><b>Category:</b></p>
-                </div>
-
-                <div class="descriptionholder">
-                    <p><b>Description:</b></p>
-                </div>
-            </div>
-
-            <div class="productholder">
-
-                <div class="imgholder">
-                    <img src="images/night_city_lights.jpg" style="height: 160px; width: 200px">
-                </div>
-
-                <div class="nameholder">
-                    <p><b>Name:</b></p>
-                </div>
-
-                <div class="priceholder">
-                    <p><b>Price:</b></p>
-                </div>
-
-                <div class="likeholder">
-                    <p><b>Likes:</b></p>
-
-                </div>
-
-                <div class="categoryholder">
-                    <p><b>Category:</b></p>
-                </div>
-
-                <div class="descriptionholder">
-                    <p><b>Description:</b></p>
-                </div>
             </div>
         </div>
     </body>
