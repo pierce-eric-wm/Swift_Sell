@@ -110,9 +110,19 @@
                     $stmt->execute();
                     $products = $stmt->fetchAll();
 
+<<<<<<< HEAD
                     // Use the products table array to display products
                     foreach ($products as $row) {
                         $imagePath = "images/" . $row['productImage'];
+=======
+                // Use the products table array to display products
+                foreach ($products as $row) {
+                    $imagePath = "images/" . $row['productImage'];
+
+                        echo '<p>' . $row['users_username'] . ' name' . '</p>';
+
+                        echo '<div class="productholder">';
+>>>>>>> origin/master
 
                         echo '<div class="productholder">';
                             echo '<div class="imgholder">';
@@ -155,6 +165,68 @@
                     echo '<div style="clear: both;"</div>';
                 ?>
             </div>
+<<<<<<< HEAD
+=======
+
+            <!-- just code to block this
+
+            <div class="productholder2">
+
+                <div class="imgholder">
+                    <img src="images/night_city_lights.jpg" style="height: 160px; width: 200px">
+                </div>
+
+                <div class="nameholder">
+                    <p><b>Name:</b></p>
+                </div>
+
+                <div class="priceholder">
+                    <p><b>Price:</b></p>
+                </div>
+
+                <div class="likeholder">
+                    <p><b>Likes:</b></p>
+
+                </div>
+
+                <div class="categoryholder">
+                    <p><b>Category:</b></p>
+                </div>
+
+                <div class="descriptionholder">
+                    <p><b>Description:</b></p>
+                </div>
+            </div>
+
+            <div class="productholder">
+
+                <div class="imgholder">
+                    <img src="images/night_city_lights.jpg" style="height: 160px; width: 200px">
+                </div>
+
+                <div class="nameholder">
+                    <p><b>Name:</b></p>
+                </div>
+
+                <div class="priceholder">
+                    <p><b>Price:</b></p>
+                </div>
+
+                <div class="likeholder">
+                    <p><b>Likes:</b></p>
+
+                </div>
+
+                <div class="categoryholder">
+                    <p><b>Category:</b></p>
+                </div>
+
+                <div class="descriptionholder">
+                    <p><b>Description:</b></p>
+                </div>
+            </div>
+>>>>>>> origin/master
         </div>
+        -->
     </body>
 </html>
