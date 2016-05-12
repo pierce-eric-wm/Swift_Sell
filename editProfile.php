@@ -29,6 +29,7 @@
         <input type="number" id="phoneNumber" name="phoneNumber" value="" /><br />
         <label for="cardNumber">CardNumber:</label>
         <input type="number" id="cardNumber" name="cardNumber" value="" /><br />
+        <label for="catagory">Category</label>
         <select name="catagory">
             <option value="Auto">Auto</option>
             <option value="Clothing">Clothing</option>
@@ -37,11 +38,11 @@
             <option value="Games">Games</option>
             <option value="Tools">Tools</option>
             <option value="Sport">Sport</option>
-        </select>
-        <label for="catagory">Category</label><br />
+        </select><br />
         <input type="hidden" name="old_picture" value="" />
-        <input type="file" id="new_picture" name="new_picture" />
         <label for="new_picture">Picture:</label>
+        <input type="file" id="new_picture" name="new_picture" />
+
     </fieldset>
     <input type="submit" value="Save Profile" name="submit" />
 </form>
@@ -51,6 +52,11 @@ require_once ('connect.php');
 require_once ('session.php');
 require_once ('define.php');
 
+$query = "SELECT * FROM users WHERE userid ='" . $_SESSION['userid'] . "'";
+$stmt = $dbh->prepare($query);
+$stmt->execute();
+$row = $stmt->fetch();
+$old_picture = $row['profileImage'];
 // Make sure the user is logged in before going any further.
 if (!isset($_SESSION['userid'])) {
     echo '<p>Please <a href="signIn.php">Sign in</a> to access this page.</p>';
@@ -69,7 +75,7 @@ if (isset($_POST['submit'])) {
     $phoneNumber = trim($_POST['phoneNumber']);
     $cardNumber = trim($_POST['cardNumber']);
     $catagory = trim($_POST['catagory']);
-    //Old picture change
+    //Old picture change variable
     $new_picture = $_FILES['new_picture']['name'];
 //    $new_picture_size = $_FILES['new_picture']['size'];
 //    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
@@ -87,9 +93,7 @@ if (isset($_POST['submit'])) {
             'cardNumber' => $cardNumber,
             'catagory' => $catagory,
             'password' => $password,
-            'profileImage' => $new_picture
-
-
+            'new_picture' => $new_picture
         ));
         $query = "UPDATE";
         if ($_FILES['new_picture']['error'] == 0) {
@@ -112,6 +116,13 @@ if (isset($_POST['submit'])) {
         if (!empty($username) && !empty($email) && !empty($address) && !empty($phoneNumber) && !empty($cardNumber) && !empty($catagory) && !empty($password)) {
 
             if (!empty($new_picture)) {
+                //Delete old image from folder
+                $query = "SELECT profileImage FROM users WHERE userid= '" . $_SESSION['userid'] . "'";
+                $stmt = $dbh->prepare($query);
+                $stmt->execute();
+                $row = $stmt->fetchAll();
+                @unlink("profileImages/" .$old_picture);
+                    // Update the the profile to the new image that the user selected
                 $query = "UPDATE users SET userid= :userid, username = :username , email = :email, " .
                     " address = :address, phoneNumber = :phoneNumber, cardNumber = :cardNumber, catagory= :catagory, profileImage = :new_picture, password = :password WHERE userid = '" . $_SESSION['userid'] . "'";
                 $stmt = $dbh->prepare($query);
@@ -123,7 +134,7 @@ if (isset($_POST['submit'])) {
                     'phoneNumber' => $phoneNumber,
                     'cardNumber' => $cardNumber,
                     'catagory' => $catagory,
-                    'profileImage' => $new_picture,
+                    'new_picture' => $new_picture,
                     'password' => $password
 
                 ));
@@ -147,7 +158,7 @@ if (isset($_POST['submit'])) {
             }
 
             // Confirm success with the user
-            echo '<p>Your profile has been successfully updated. Would you like to <a href="viewprofile.php">view your profile</a>?</p>';
+            echo '<p>Your profile has been successfully updated. Would you like to <a href="profile.php">view your profile</a>?</p>';
             exit();
         }
     } else {
