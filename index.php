@@ -21,9 +21,11 @@
             <div class="topbar">
                 <div class="casingnav">
                     <ul>
-                        <img src="images/SwiftSell.png" style="height:58px;">
-                        <li><a href="#" style="color: #4a5c68;">About</a>
-                        <li><a href="#" style="color: #4a5c68;">example</a></li>
+
+                        <img src="images/SwiftSell.png" style="height:58px; float: left">
+                        <p class="locationlink"> <a href="Home.php">Phoenix, Az <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
+                        <li><a href="#" style="color: #4a5c68;">About Us</a>
+                        <li><a href="#" style="color: #4a5c68;">Locations</a></li>
                         <li class="navactive"><a href="Home.php" style="color: #4a5c68;">Home</a></li>
                     </ul>
                 </div>
@@ -34,36 +36,35 @@
 
             <center>
                 <i><h1>Categories</h1></i>
+                <p> <a href="Home.php">PHOENIX, AZ <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
             </center>
 
-            <hr>
-
             <div class="categoriefill">
-                <h3>Auto</h3>
+                <input type="button" class="button" value="Auto" />
             </div>
 
             <div class="categoriefill">
-                <h3>Clothing</h3>
+                <input type="button" class="button" value="Clothing" />
             </div>
 
             <div class="categoriefill">
-                <h3>Technology</h3>
+                <input type="button" class="button" value="Technology" />
             </div>
 
             <div class="categoriefill">
-                <h3>Household</h3>
+                <input type="button" class="button" value="Household" />
             </div>
 
             <div class="categoriefill">
-                <h3>Games</h3>
+                <input type="button" class="button" value="Games" />
             </div>
 
             <div class="categoriefill">
-                <h3>Tools</h3>
+                <input type="button" class="button" value="Tools" />
             </div>
 
             <div class="categoriefill">
-                <h3>Sport</h3>
+                <input type="button" class="button" value="Sport" />
             </div>
 
         </div>
@@ -86,7 +87,8 @@
 
         <div class="categorybody">
             <div class="container">
-                <h1>Welcome</h1>
+                <h1>Welcome!</h1>
+                <h2>Look at the </h2>
             </div>
 
                 <div class="productsContainer">
