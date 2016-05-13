@@ -9,6 +9,8 @@
         $productid = $_POST['productidCart'];
 
         // Put that into SESSION
+        $_SESSION['productid'] = $productid;
+        header('location: product.php');
     }
 
     // If user likes a product
@@ -16,9 +18,23 @@
         // Define prodcut id
         $productid = $_POST['productidLike'];
 
-        // Put that into SESSION
-        $_SESSION['productid'] = $productid;
-        header('location: product.php')
+        $query = $dbh->prepare("SELECT productLikes FROM products WHERE productid = :productid");
+        $query->execute(
+            array(
+                'productid' => $productid
+            )
+        );
+        $originalLikes = $query->fetch();
+
+        $addLike = $originalLikes['0'] + 1;
+
+        $query = $dbh->prepare("UPDATE products SET productLikes = :addLike WHERE productid = :productid");
+        $query->execute(
+            array(
+                'addLike' => $addLike,
+                'productid' => $productid
+            )
+        );
     }
 ?>
 
@@ -121,7 +137,7 @@
                 <div class="productsContainer">
                     <?php
                         // Select all of the rows in product table and put them in an array
-                        $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products";
+                        $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products ORDER BY productLikes DESC";
                         $stmt = $dbh->prepare($query);
                         $stmt->execute();
                         $products = $stmt->fetchAll();
@@ -156,14 +172,14 @@
                                 echo '</div>';
 
                                 echo '<div class="buttonholder">';
-                                    echo '<form method="post">';
+                                    echo '<form method="post" name="addProduct">';
                                         echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
-                                        echo '<button type="submit" class="productbutton" name="addProduct">Add to Cart</button>';
+                                        echo '<button type="submit" class="productbutton" name="addProduct" value="1">Add to Cart</button>';
                                     echo '</form>';
 
-                                    echo '<form method="post">';
+                                    echo '<form method="post" name="likeProduct">';
                                         echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
-                                        echo '<button type="submit" class="productbutton" name="likeProduct">Like</button>';
+                                        echo '<button type="submit" class="productbutton" name="likeProduct" value="1">Like</button>';
                                     echo '</form>';
                                 echo '</div>';
                             echo "</div>";
