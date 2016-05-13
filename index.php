@@ -57,9 +57,9 @@
                 <div class="casingnav">
                     <ul>
                         <img src="images/SwiftSell.png" style="height:58px;">
-                        <li><a href="#" style="color: #4a5c68;">About</a>
-                            <li><a href="#" style="color: #4a5c68;">example</a></li>
-                            <li class="navactive"><a href="Home.php" style="color: #4a5c68;">Home</a></li>
+                        <li><a href="admin.php" style="color: #4a5c68;">Admin</a>
+                            <li><a href="signUp.php" style="color: #4a5c68;">Sign Up</a></li>
+                            <li class="navactive"><a href="Home.php" style="color: #4a5c68;">Sign In</a></li>
                         </ul>
                     </div>
                 </div>

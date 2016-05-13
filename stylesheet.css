@@ -116,7 +116,7 @@ a:hover {
 }
 
 .productsContainer {
-    width: 90%;
+    margin-left: 50px;
 }
 
 .product {
