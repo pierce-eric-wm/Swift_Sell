@@ -58,10 +58,12 @@
         <a href="upload.php">Upload</a>
     </div>
 
-    <div class="textbox">
-    <h1>Sign Up</h1>
-    </div>
     <div class="categorybody">
+
+        <div class="textbox">
+            <h1>Sign Up</h1>
+        </div>
+
         <center>
         <form method="post" name="signUp" enctype="multipart/form-data">
             <input type="text" name="username">
