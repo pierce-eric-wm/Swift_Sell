@@ -77,7 +77,7 @@ if (isset($_GET['userid'])) {
 
         // Update the profile data in the database
         if (!empty($new_picture)) {
-            $query = "UPDATE users SET userid= :userid, username= :username , email= :email, address= :address, phoneNumber= :phoneNumber, cardNumber= :cardNumber, catagory= :catagory, profileImage= :new_picture, password= :password WHERE userid = '" . $_SESSION['userid'] . "'";
+            $query = "UPDATE users SET userid= :userid, username= :username , email= :email, address= :address, phoneNumber= :phoneNumber, cardNumber= :cardNumber, catagory= :catagory, profileImage= :new_picture, password= :password WHERE userid = '" . $_GET['userid'] . "'";
             $stmt = $dbh->prepare($query);
             $stmt->execute(array(
                 'userid' => $_GET['userid'],
@@ -112,14 +112,14 @@ if (isset($_GET['userid'])) {
 
                 if (!empty($new_picture)) {
                     //Delete old image from folder
-                    $query = "SELECT profileImage FROM users WHERE userid= '" . $_SESSION['userid'] . "'";
+                    $query = "SELECT profileImage FROM users WHERE userid= '" . $_GET['userid'] . "'";
                     $stmt = $dbh->prepare($query);
                     $stmt->execute();
                     $row = $stmt->fetchAll();
                     @unlink("profileImages/" . $old_picture);
                     // Update the the profile to the new image that the user selected
                     $query = "UPDATE users SET userid= :userid, username = :username , email = :email, " .
-                        " address = :address, phoneNumber = :phoneNumber, cardNumber = :cardNumber, catagory= :catagory, profileImage = :new_picture, password = :password WHERE userid = '" . $_SESSION['userid'] . "'";
+                        " address = :address, phoneNumber = :phoneNumber, cardNumber = :cardNumber, catagory= :catagory, profileImage = :new_picture, password = :password WHERE userid = '" . $_GET['userid'] . "'";
                     $stmt = $dbh->prepare($query);
                     $stmt->execute(array(
                         'userid' => $_GET['userid'],
