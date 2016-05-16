@@ -109,15 +109,28 @@
             </div>
 
             <div class="profile">
-                <center>
-                    <img class="profileimg" src="images/default-avatar.png" >
-                </center>
-                <a href="profile.php">Profile</a>
-                <a href="editProfile.php">Edit Profile</a>
-                <a href="signIn.php">Sign In</a>
-                <a href="signOut.php">Sign Out</a>
-                <a href="signUp.php">Sign Up</a>
-                <a href="upload.php">Upload</a>
+                <?php
+                    if (@$_SESSION['signIn'] == true) {
+                        $profileImage = $_SESSION['profileImage'];
+
+                        echo "<center>";
+                            echo '<img class="profileimg" src="images/' . $profileImage . '" >';
+                        echo "</center>";
+                        echo '<a href="profile.php">Profile</a>';
+                        echo '<a href="editProfile.php">Edit Profile</a>';
+                        echo '<a href="signOut.php">Sign Out</a>';
+                        echo '<a href="signUp.php">Sign Up</a>';
+                        echo '<a href="upload.php">Upload</a>';
+                    }
+
+                    else {
+                        echo "<center>";
+                            echo '<img class="profileimg" src="images/default-avatar.png" >';
+                        echo "</center>";
+                        echo '<a href="signIn.php">Sign In</a>';
+                        echo '<a href="signUp.php">Sign Up</a>';
+                    }
+                ?>
             </div>
 
             <div class="headimage">
