@@ -1,7 +1,9 @@
 body {
-    background-image: url("images/wov.png");
+    background-image: url("http://enjoycss.com/bg-img/custom/17856-1l8go7k.png");
     font-family: chaparral pro;
 }
+
+
 
 .casingnav {
      margin-left: auto;
@@ -21,11 +23,10 @@ body {
 ul {
     list-style-type: none;
     margin: 0;
-    background-color: white;
     position: fixed;
     text-transform: uppercase;
     font-size: 15px;
-    
+
 }
 
 li {
@@ -59,11 +60,14 @@ a:hover {
     width: 1000px;
     padding-top: 70px;
 }
+.navactive {
+    border-bottom:3px solid #4a5c68;
+}
 
 .categories {
     width: 220px;
     background-color: #ffffff;
-    height: 425px;
+    height: 480px;
     margin-top: 70px;
     position: fixed;
     border-bottom: 2px;
@@ -76,13 +80,10 @@ a:hover {
 }
 
 .categoriefill {
-    background-color: #00e3fc;
     text-align: center;
+    margin-top: 15px;
 }
 
-.categoriefill:hover {
-    background-color: #00B3FF;
-}
 
 .categorybody {
     background-color: white;
@@ -115,10 +116,8 @@ a:hover {
     border-radius: 40px;
 }
 
-
-
 .productsContainer {
-    width: 90%;
+    margin-left: 50px;
 }
 
 .product {
@@ -136,28 +135,19 @@ a:hover {
      text-align: center;
  }
 
-
 .productholder {
     width: 350px;
-    height: 200px;
+    height: 230px;
     border-color: #eca400;
     border-style: solid;
     border-width: medium;
     color: white;
-}
-
-.productholder2 {
-    width: 350px;
-    height: 200px;
-    float: right;
-    border-color: #eca400;
-    border-style: solid;
-    border-width: medium;
-    color: red;
+    float: left;
+    margin: 20px;
 }
 
 .nameholder {
-    width: 150px;
+    width: 165px;
     height: 40px;
     background-color: #006992;
     border-bottom: 2px;
@@ -166,7 +156,7 @@ a:hover {
 }
 
 .priceholder {
-    width: 150px;
+    width: 165px;
     height: 40px;
     background-color: #006992;
     border-bottom: 2px;
@@ -175,7 +165,7 @@ a:hover {
 }
 
 .likeholder {
-    width: 150px;
+    width: 165px;
     height: 40px;
     background-color: #006992;
     border-bottom: 2px;
@@ -184,7 +174,7 @@ a:hover {
 }
 
 .categoryholder {
-    width: 150px;
+    width: 165px;
     height: 40px;
     background-color: #006992;
     border-bottom: 2px;
@@ -197,44 +187,65 @@ a:hover {
     background-color: #23395d;
     text-align: center;
     padding-top: 5px;
-
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #eaf8bf;
 }
+
+.buttonholder {
+    background-color: #006992;
+    height: 30px;
+}
+
+.productbutton {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .imgholder {
     float: right;
     height: 160px;
     width: 200px;
 }
 
-/* THIS IS FOR THE USER ADMIN PAGE*/
-.adminUserTd{
-    border: solid;
-    border-color: black;
-    border-width: 2.5px;
+.productimage {
+    height: 160px;
+    width: 200px;
 }
 
-#admin_error{
-    color:red;
-    font-size:45px;
-    text-align: center;
-    text-decoration: underline;
-
-}
-
-#adminTable {
-    text-align: center;
+.categoryheader {
     margin-left: auto;
     margin-right: auto;
-    border: solid;
-    border-color: black;
-    border-width: 2.5px;
-
 }
-
-#userAdminHeader{
-    font-size: 50px;
-    text-align: center;
-    text-decoration: underline;
+.locationlink {
+    float: left;
+    font-size: 16px;
+    margin-top: 34px;
 }
-.adminLinks {
-    text-align: center;
+.button {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    cursor: pointer;
+    padding: 7px 20px;
+    /* border: 1px solid #018dc4; */
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: normal medium/normal Arial, Helvetica, sans-serif;
+    color: rgba(255,255,255,0.9);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: #5c5d5e;
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+    /* text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ; */
+    -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    width: 100px;
 }
