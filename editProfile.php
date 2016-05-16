@@ -77,9 +77,6 @@ if (isset($_POST['submit'])) {
     $catagory = trim($_POST['catagory']);
     //Old picture change variable
     $new_picture = $_FILES['new_picture']['name'];
-//    $new_picture_size = $_FILES['new_picture']['size'];
-//    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
-
     // Update the profile data in the database
     if (!empty($new_picture)) {
         $query = "UPDATE users SET userid= :userid, username= :username , email= :email, address= :address, phoneNumber= :phoneNumber, cardNumber= :cardNumber, catagory= :catagory, profileImage= :new_picture, password= :password WHERE userid = '" . $_SESSION['userid'] . "'";

@@ -205,3 +205,36 @@ a:hover {
     width: 200px;
 }
 
+/* THIS IS FOR THE USER ADMIN PAGE*/
+.adminUserTd{
+    border: solid;
+    border-color: black;
+    border-width: 2.5px;
+}
+
+#admin_error{
+    color:red;
+    font-size:45px;
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+#adminTable {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid;
+    border-color: black;
+    border-width: 2.5px;
+
+}
+
+#userAdminHeader{
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+}
+.adminLinks {
+    text-align: center;
+}
