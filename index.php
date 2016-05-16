@@ -50,11 +50,12 @@
             <div class="topbar">
                 <div class="casingnav">
                     <ul>
-                        <img src="images/SwiftSell.png" style="height:58px;">
-                        <li><a href="signUp.php" style="color: #4a5c68;">Sign Up</a>
-                            <li><a href="signIn.php" style="color: #4a5c68;">Sign In</a></li>
-                            <li class="navactive"><a href="upload.php" style="color: #4a5c68;">Upload</a></li>
-                        </ul>
+                        <img src="images/SwiftSell.png" style="height:58px; float: left">
+                        <p class="locationlink" style="margin-left: 10px;"> <a href="Home.php">Phoenix, Az <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
+                        <li><a href="#" style="color: #4a5c68;">About Us</a>
+                        <li><a href="#" style="color: #4a5c68;">Locations</a></li>
+
+                    </ul>
                     </div>
                 </div>
             </div>
@@ -62,47 +63,47 @@
             <div class="categories">
                 <center>
                     <i><h1>Categories</h1></i>
+                    <p> <a href="Home.php">PHOENIX, AZ <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
                 </center>
-                <hr>
                 <a href="categories/auto.php">
                     <div class="categoriefill">
-                        <h3>Auto</h3>
+                        <input type="button" class="button" value="Auto" />
                     </div>
                 </a>
 
                 <a href="categories/clothing.php">
                     <div class="categoriefill">
-                        <h3>Clothing</h3>
+                        <input type="button" class="button" value="Clothing" />
                     </div>
                 </a>
 
                 <a href="categories/technology.php">
                     <div class="categoriefill">
-                        <h3>Technology</h3>
+                        <input type="button" class="button" value="Technology" />
                     </div>
                 </a>
 
                 <a href="categories/household.php">
                     <div class="categoriefill">
-                        <h3>Household</h3>
+                        <input type="button" class="button" value="Household" />
                     </div>
                 </a>
 
                 <a href="categories/games.php">
                     <div class="categoriefill">
-                        <h3>Games</h3>
+                        <input type="button" class="button" value="Games" />
                     </div>
                 </a>
 
                 <a href="categories/tools.php">
                     <div class="categoriefill">
-                        <h3>Tools</h3>
+                        <input type="button" class="button" value="Tools" />
                     </div>
                 </a>
 
                 <a href="categories/sport.php">
                     <div class="categoriefill">
-                        <h3>Sport</h3>
+                        <input type="button" class="button" value="Sport" />
                     </div>
                 </a>
             </div>
