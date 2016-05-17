@@ -53,8 +53,6 @@
             echo "<h5>$cardNumber</h5>";
             echo "<br>";
             echo "<h5>$catagory</h5>";
-            echo "<br>";
-            echo "<h5>$password</h5>";
         }
 
         else {

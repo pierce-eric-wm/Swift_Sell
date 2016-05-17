@@ -17,7 +17,7 @@
         // Makes sure the user fills out all of the forms
         if (!empty($email) && !empty($password)) {
             // If they have entered in all the form fields then we check to see if they are a user
-            $query = $dbh->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
+            $query = $dbh->prepare("SELECT * FROM users WHERE email = :email AND password = SHA(:password)");
             $query->execute(
                 array(
                     'email' => $email,
@@ -67,16 +67,7 @@
     </head>
 
     <body>
-       <!-- <form method="post" name="signIn">
-            <input type="email" name="email">
-            <label for="email">Email</label>
-            <br>
-            <input type="password" name="password">
-            <label for="password">Password</label>
-            <br>
-            <button type="submit" name="signIn" value="1">SignIn</button>
-        </form>
--->
+
 <div class="casingnav">
             <div class="topbar">
                 <div class="casingnav">
@@ -90,7 +81,7 @@
                     </div>
                 </div>
             </div>
-        
+
         <div id="login-overlay" class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -100,14 +91,14 @@
               <div class="row">
                   <div class="col-xs-7">
                       <div class="well">
-                          <form id="loginForm" method="post" name="signIN">
+                          <form id="loginForm" method="post" name="signIn">
                               <div class="form-group">
                                   <label for="email" class="control-label">Email</label>
-                                  <input class="button" type="email" id="email" name="email" placeholder="example@gmail.com" />    
+                                  <input class="button" type="email" id="email" name="email"/>
                               </div>
                               <div class="form-group">
                                   <label for="password" class="control-label">Password</label>
-                                  <input class="button" type="password" id="password" name="password" />  
+                                  <input class="button" type="password" id="password" name="password" />
                               </div>
                               <button type="submit" name="signIn" value="1" class="btn btn-success btn-block" style="background: rgba(40,40,40,0.4); width:120px; border-color:white;">Login</button>
                           </form>

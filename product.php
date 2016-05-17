@@ -24,9 +24,8 @@
     $productImage = $productInfo['6'];
 
     if (@$_POST['addCart']) {
-        $query = "INSERT INTO carts VALUES (:cartid, :productid, :productName, :productPrice :users_userid)";
-        $stmt = $dbh->prepare($query);
-        $stmt->execute(
+        $query = $dbh->prepare("INSERT INTO carts VALUES (:cartid, :productid, :productName, :productPrice, :users_userid)");
+        $query->execute(
             array(
                 'cartid' => 0,
                 'productid' => $productid,
@@ -35,7 +34,12 @@
                 'users_userid' => $userid
             )
         );
+
         echo "You have added this product to your cart";
+        echo "$userid";
+        echo "$productid";
+        echo "$productName";
+        echo "$productPrice";
     }
 
     // If user likes a product
