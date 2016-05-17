@@ -50,8 +50,8 @@
             <div class="topbar">
                 <div class="casingnav">
                     <ul>
-                        <img src="images/SwiftSell.png" style="height:58px; float: left">
-                        <p class="locationlink" style="margin-left: 10px;"> <a href="Home.php">Phoenix, Az <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
+                        <a href="index.php"><img src="images/SwiftSell.png" style="height:58px; float: left"> </a>  
+                        <p class="locationlink" style="margin-left: 10px;"><a href="Home.php">Phoenix, Az <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
                         <li><a href="#" style="color: #4a5c68;">About Us</a>
                         <li><a href="#" style="color: #4a5c68;">Locations</a></li>
 
