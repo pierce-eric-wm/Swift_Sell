@@ -3,10 +3,19 @@
     require_once('connect.php');
     session_start();
 
-    $query = "SELECT * FROM carts WHERE ";
+    // Localize the SESSION
+    $userid = $_SESSION['userid'];
+
+    $query = "SELECT * FROM carts WHERE userid = :userid";
     $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    $products = $stmt->fetchAll();
+    $stmt->execute(
+        array(
+            'userid' => $userid
+        )
+    );
+    $products = $stmt->fetch();
+
+    echo "$userid";
 ?>
 
 <!DOCTYPE html>

@@ -30,7 +30,7 @@
 
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
                         // If everything is good then we can insert the user data into the databse
-                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, SHA(:cardNumber), :catagory, :image, SHA(:password))");
+                        $query = $dbh->prepare("INSERT INTO users VALUES (:userid, :username, :email, :address, :phoneNumber, :cardNumber, :catagory, :image, SHA(:password))");
                         $query->execute(
                             array(
                                 'userid' => 0,
@@ -62,7 +62,6 @@
                         $_SESSION['cardNumber'] = $userInfo['5'];
                         $_SESSION['catagory'] = $userInfo['6'];
                         $_SESSION['profileImage'] = $userInfo['7'];
-                        $_SESSION['password'] = $userInfo['8'];
                         $_SESSION['signIn'] = true;
 
                         // Take the user to the profile page
