@@ -1,70 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Swift Sell</title>
+         <meta charset="UTF-8">
+        <!-- tell internet to use the latest rendering engine -->
+        <meta http-eqiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width = device-width, initial- scle = 1">
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="signup.css">
+        <link async href="http://fonts.googleapis.com/css?family=Antic" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
+                <link async href="http://fonts.googleapis.com/css?family=Advent%20Pro" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>
     </head>
-
-    <body>
-
-    <div class="topbar">
-        <div class="casingnav">
-            <ul>
-                <img src="images/SwiftSell.png" style="height:58px;">
-                <li><a href="#" style="color: #4a5c68;">About</a>
-                <li><a href="#" style="color: #4a5c68;">example</a></li>
-                <li class="navactive"><a href="Home.php" style="color: #4a5c68;">Home</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="categories">
-        <center>
-            <i><h1>Categories</h1></i>
-        </center>
-        <hr>
-        <div class="categoriefill">
-            <h3>Auto</h3>
-        </div>
-        <div class="categoriefill">
-            <h3>Clothing</h3>
-        </div>
-        <div class="categoriefill">
-            <h3>Technology</h3></div>
-        <div class="categoriefill">
-            <h3>Household</h3>
-        </div>
-        <div class="categoriefill">
-            <h3>Games</h3>
-        </div>
-        <div class="categoriefill">
-            <h3>Tools</h3>
-        </div>
-        <div class="categoriefill">
-            <h3>Sport</h3>
-        </div>
-    </div>
-
-    <div class="profile">
-        <center>
-            <img class="profileimg" src="images/default-avatar.png" >
-
-        </center>
-        <a href="profile.php">Profile</a>
-        <a href="editProfile.php">Edit Profile</a>
-        <a href="signIn.php">Sign In</a>
-        <a href="signOut.php">Sign Out</a>
-        <a href="signUp.php">Sign Up</a>
-        <a href="upload.php">Upload</a>
-    </div>
-
-    <div class="categorybody">
-
-        <div class="textbox">
-            <h1>Sign Up</h1>
-        </div>
-
-        <center>
+<body>
+    <!--
         <form method="post" name="signUp" enctype="multipart/form-data">
             <input type="text" name="username">
             <label for="username">Username</label>
@@ -92,20 +40,113 @@
             </select>
             <label for="catagory">Category</label>
             <br><br>
-            <input type="file" name="image" id="image">
             <label for="image">Profile Image</label>
+            <input type="file" name="image" id="image">
+            
             <br><br>
-            <input type="password" name="password">
             <label for="password">Password</label>
+            <input type="password" name="password">
+            
             <br><br>
-            <input type="password" name="confirmPassword">
             <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword">
+            
             <br><br>
             <button type="submit" name="signUp" value="1">Sign Up</button>
-        </form>
+        
             </div>
-        </center>
-    <?php
+-->
+        <div class="casingnav">
+            <div class="topbar">
+                <div class="casingnav">
+                    <ul class="navbar">
+                        <a href="index.php"><img src="images/SwiftSell.png" style="height:58px; float: left"> </a>
+                        <p class="locationlink" style="margin-left: 10px;"><a href="Home.php">Phoenix, Az <span class="glyphicon glyphicon-map-marker"> </span> </a></p>
+                        <li class="tabs"><a href="#" style="color: #4a5c68;">About Us</a>
+                        <li class="tabs"><a href="#" style="color: #4a5c68;">Locations</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+
+        <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h3 style="float:right;">Sign Up</h3>
+              <img src="images/SwiftSell.png" style="height:38px;">
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                
+                <div class="col-lg-12">
+                      <div class="well">
+                          <form method="post" name="signUp" enctype="multipart/form-data">
+                              <div class="form-group">
+                                  <label for="username">Username </label>
+                                  <input class="button" type="text" name="username" placeholder="Your Username ..." />
+                                
+                              </div>
+                              <div class="form-group">
+                                  <label for="email">Email</label>
+                                  <input class="button" type="email" name="email" placeholder="Your Email ..." />                                  
+                              </div>
+                              <div class="form-group">
+                                  <label for="address">Address</label>
+                                
+                                  <input class="button" type="text" name="address" placeholder="Your Address ..." />    
+                              </div>
+                              <div class="form-group">
+                                  <label for="phoneNumber">Phone Number</label>
+                                  <input class="button" type="number" name="phoneNumber" placeholder="Your Number ..." />    
+                              </div>
+                              <div class="form-group">
+                                  <label for="cardNumber">Card Number</label>
+                                  <input class="button" type="number" name="cardNumber" placeholder="Your Card Number ..." />   
+                              </div>
+                              <div class="form-group">
+                                <label for="catagory">Category</label>
+                                  <select name="catagory" class="inputbtn">
+                <option value="Auto">Auto</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Technology">Technology</option>
+                <option value="Household">Household</option>
+                <option value="Games">Games</option>
+                <option value="Tools">Tools</option>
+                <option value="Sport">Sport</option>
+            </select>
+                              </div>
+                              <div class="form-group">
+                                  <label for="image" style="float:left; margin-right:2px;">Profile Image</label>
+            <input type="file" name="image" id="image">
+                              </div>
+                            <div class="form-group">
+                              <label for="password">Password</label>
+                                <input class="button" type="password" name="password" placeholder="Your Password ..." />   
+
+                            </div>
+                            <div class="form-group">
+                              <label for="confirmPassword">Confirm Password</label>
+                            <input class="button" type="password" name="confirmPassword" placeholder="Your Password ..." />   
+
+
+
+
+        
+                            </div>
+                            <button type="submit" name="signUp" value="1" class="signupbutton" style="width:100px;">Sign Up</button>
+            
+                              <p style="float:right; margin-top:18px;">Already a member?<a href="signIn.php"> Sign In!</a></p>
+                          </form>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+</div>
+
+
+               <?php
     // Start the sessions and connect to the database
     require_once ('session.php');
     require_once('connect.php');
@@ -192,6 +233,9 @@
         }
     }
     ?>
-
+            </div>
+        </div>
     </body>
+
+
 </html>
