@@ -161,11 +161,11 @@
                                 echo '<div class="buttonholder">';
                                     echo '<form method="post" name="addProduct">';
                                         echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
-                                        echo '<button type="submit" class="productbutton" name="addProduct" value="1">Add to Cart</button>';
+                                        echo '<button type="submit" class="button1" name="addProduct" value="1"><span class="glyphicon glyphicon-shopping-cart"> </span> Add to Cart</button>';
                                     echo '</form>';
                                     echo '<form method="post" name="likeProduct">';
                                         echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
-                                        echo '<button type="submit" class="productbutton" name="likeProduct" value="1">Like</button>';
+                                        echo '<button type="submit" class="button2" name="likeProduct" value="1"><span class="glyphicon glyphicon-thumbs-up"> </span> Like</button>';
                                     echo '</form>';
                                 echo '</div>';
                             echo "</div>";
