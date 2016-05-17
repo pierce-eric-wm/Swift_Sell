@@ -1,5 +1,5 @@
 body {
-    background-image: url("images/wov.png");
+    background-image: url("http://enjoycss.com/bg-img/custom/17856-1l8go7k.png");
     font-family: chaparral pro;
 }
 
@@ -101,9 +101,7 @@ a:hover {
 .topbar {
     height: 60px;
     border-bottom: 2px;
-    border-bottom-style: solid;
     border-color: #4a5c68;
-    background-color: white;
 }
 
 ul {
@@ -151,7 +149,7 @@ a:hover {
 .categories {
     width: 220px;
     background-color: #ffffff;
-    height: 425px;
+    height: 480px;
     margin-top: 70px;
     position: fixed;
     border-bottom: 2px;
@@ -174,7 +172,7 @@ a:hover {
 
 .categorybody {
     background-color: white;
-    width: 1000px;
+    width: 800px;
     height: 1000px;
     margin-left: auto;
     margin-right: auto;
