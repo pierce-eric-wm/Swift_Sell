@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </div>
-        
+
         <div id="login-overlay" class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
@@ -103,11 +103,11 @@
                           <form id="loginForm" method="post" name="signIN">
                               <div class="form-group">
                                   <label for="email" class="control-label">Email</label>
-                                  <input class="button" type="email" id="email" name="email" placeholder="example@gmail.com" />    
+                                  <input class="button" type="email" id="email" name="email"/>    
                               </div>
                               <div class="form-group">
                                   <label for="password" class="control-label">Password</label>
-                                  <input class="button" type="password" id="password" name="password" />  
+                                  <input class="button" type="password" id="password" name="password" />
                               </div>
                               <button type="submit" name="signIn" value="1" class="btn btn-success btn-block" style="background: rgba(40,40,40,0.4); width:120px; border-color:white;">Login</button>
                           </form>
