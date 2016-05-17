@@ -234,7 +234,7 @@
                                 echo "</div>";
                             }
                             echo '<div style="clear: both;"</div>';
-                        }
+
                     ?>
                 </div>
             </div>
