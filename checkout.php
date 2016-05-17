@@ -1,23 +1,3 @@
-<?php
-    // Start the sessions and connect to the database
-    require_once('connect.php');
-    session_start();
-
-    // Localize the SESSION
-    $userid = $_SESSION['userid'];
-
-    $query = "SELECT * FROM carts WHERE userid = :userid";
-    $stmt = $dbh->prepare($query);
-    $stmt->execute(
-        array(
-            'userid' => $userid
-        )
-    );
-    $products = $stmt->fetch();
-
-    echo "$userid";
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,6 +12,40 @@
     </head>
 
     <body>
+        <table>
+            <thead>
+                <td>Name</td>
+                <td>Price</td>
+            </thead>
+
+            <tbody>
+                <?php
+                    // Start the sessions and connect to the database
+                    require_once('connect.php');
+                    session_start();
+
+                    // Localize the SESSION
+                    $userid = $_SESSION['userid'];
+
+                    $query = "SELECT * FROM carts WHERE users_userid = :userid";
+                    $stmt = $dbh->prepare($query);
+                    $stmt->execute(
+                        array(
+                            'userid' => $userid
+                        )
+                    );
+                    $products = $stmt->fetchAll();
+
+                    foreach ($products as $row) {
+                        echo "<tr>";
+                            echo "<td>" . $row['productName'] . "</td>";
+                            echo "<td>" . $row['productPrice'] . "</td>";
+                        echo "</tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
+
 
     </body>
 </html>
