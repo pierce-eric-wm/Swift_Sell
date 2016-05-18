@@ -144,6 +144,18 @@ a:hover {
     margin: 20px;
 }
 
+.productholderBig {
+    width: 800px;
+    height: 395px;
+    border-color: black;
+    border-style: solid;
+    border-width: medium;
+    color: white;
+    float: left;
+    margin: 20px;
+}
+
+
 .nameholder {
     width: 165px;
     height: 40px;
@@ -154,9 +166,31 @@ a:hover {
     padding: 2px;
 }
 
+.nameholderBig {
+    width: 165px;
+    height: 40px;
+    background-color: #005C92;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    padding: 2px;
+}
+
+
 .priceholder {
     width: 165px;
     height: 40px;
+    background-color: #005C92;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    padding: 2px;
+
+}
+
+.priceholderBig {
+    width: 390px;
+    height: 70px;
     background-color: #005C92;
     border-bottom: 2px;
     border-bottom-style: solid;
@@ -176,9 +210,31 @@ a:hover {
 
 }
 
+.likeholderBig {
+    width: 390px;
+    height: 70px;
+    background-color: #005C92;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    padding: 2px;
+
+}
+
 .categoryholder {
     width: 165px;
     height: 40px;
+    background-color: #005C92;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    padding: 2px;
+
+}
+
+.categoryholderBig {
+    width: 390px;
+    height: 70px;
     background-color: #005C92;
     border-bottom: 2px;
     border-bottom-style: solid;
@@ -198,6 +254,17 @@ a:hover {
 
 }
 
+.descriptionholderBig {
+    height: 70px;
+    background-color: #23395d;
+    text-align: center;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    padding: 6px;
+
+}
+
 .buttonholder {
     background-color: #005C92;
     height: 30px;
@@ -205,7 +272,22 @@ a:hover {
 
 }
 
+.buttonholderBig {
+    background-color: #005C92;
+    height: 70px;
+    padding: 4px 22px;
+
+}
+
 .productbutton {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.productbuttonBig {
     float: left;
     margin-left: 20px;
     margin-right: 20px;
@@ -219,9 +301,26 @@ a:hover {
     width: 200px;
 }
 
+.imgholderBig {
+    float: right;
+    height: 250px;
+    width: 400px;
+}
+
 .productimage {
     height: 160px;
     width: 200px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    border-left: 2px;
+    border-left-style: solid;
+    border-left-color: black;
+}
+
+.productimageBig {
+    height: 250px;
+    width: 400px;
     border-bottom: 2px;
     border-bottom-style: solid;
     border-color: black;
@@ -364,5 +463,5 @@ video {
 .slogan {
     text-align: center;
     padding: 18px;
-    
+
 }
