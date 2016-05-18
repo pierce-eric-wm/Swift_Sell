@@ -49,5 +49,6 @@ foreach ($result as $row){
 }
 echo '</table>';
 echo '<p class="adminLinks"> Go to the <a href="adminUser.php">User</a> page</p>';
+echo '<p class="adminLinks"> Go to <a href="index.php.php">Home</a> page</p>';
 exit;
 ?>

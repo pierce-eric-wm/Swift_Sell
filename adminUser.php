@@ -51,5 +51,6 @@ foreach ($result as $row){
 echo '</table>';
 echo '<p class="adminLinks"><a href="signUp.php">Create a User</a> (directs to sign up page)</p>';
 echo '<p class="adminLinks">Go to the <a href="adminProduct.php">Product</a> page </p>';
+echo '<p class="adminLinks"> Go to <a href="index.php.php">Home</a> page</p>';
 exit;
 ?>
