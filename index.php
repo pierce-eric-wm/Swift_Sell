@@ -139,103 +139,51 @@
             </div>
 
             <div class="categorybody">
-               
-                    <h1 class="slogan"><i>Signup. Buy it. It's that easy.</i></h1>    
+
+                    <h1 class="slogan"><i>Signup. Buy it. It's that easy.</i></h1>
 
                 <div class="productsContainer">
                     <?php
-                        if ($_SESSION['catagory'] == true) {
-                            echo "catagory";
-                            $productCatagory = $_SESSION['catagory'];
-                            // Select all of the rows in product table and put them in an array
-                            $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products WHERE productCatagory = :productCatagory ORDER BY productLikes DESC";
-                            $stmt = $dbh->prepare($query);
-                            $stmt->execute(
-                                array(
-                                    'productCatagory' => $productCatagory
-                                )
-                            );
-                            $products = $stmt->fetchAll();
-                            // Use the products table array to display products
-                            foreach ($products as $row) {
-                                $imagePath = "images/" . $row['productImage'];
-                                echo '<div class="productholder">';
-                                    echo '<div class="imgholder">';
-                                        echo '<img src="' . $imagePath . '" class="productimage">';
-                                    echo "</div>";
-                                    echo '<div class="nameholder">';
-                                        echo '<p><b>Name: </b>' . $row['productName'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="priceholder">';
-                                        echo '<p><b>Price: </b>' . $row['productPrice'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="likeholder">';
-                                        echo '<p><b>Likes: </b>' . $row['productLikes'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="categoryholder">';
-                                        echo '<p><b>Category: </b>' . $row['productCatagory'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="descriptionholder">';
-                                        echo '<p><b>Description: </b>' . $row['productDescription'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="buttonholder">';
-                                        echo '<form method="post" name="addProduct">';
-                                            echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
-                                            echo '<button type="submit" class="productbutton" name="addProduct" value="1">Add to Cart</button>';
-                                        echo '</form>';
-                                        echo '<form method="post" name="likeProduct">';
-                                            echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
-                                            echo '<button type="submit" class="productbutton" name="likeProduct" value="1">Like</button>';
-                                        echo '</form>';
-                                    echo '</div>';
-                                echo "</div>";
-                            }
-                            echo '<div style="clear: both;"</div>';
-                        }
-
-                        else {
-                            echo "no catagory";
-                            // Select all of the rows in product table and put them in an array
-                            $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products ORDER BY productLikes DESC";
-                            $stmt = $dbh->prepare($query);
-                            $stmt->execute();
-                            $products = $stmt->fetchAll();
-                            // Use the products table array to display products
-                            foreach ($products as $row) {
-                                $imagePath = "images/" . $row['productImage'];
-                                echo '<div class="productholder">';
-                                echo '<div class="imgholder">';
-                                echo '<img src="' . $imagePath . '" class="productimage">';
-                                echo "</div>";
-                                echo '<div class="nameholder">';
-                                echo '<p><b>Name: </b>' . $row['productName'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="priceholder">';
-                                echo '<p><b>Price: </b>' . $row['productPrice'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="likeholder">';
-                                echo '<p><b>Likes: </b>' . $row['productLikes'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="categoryholder">';
-                                echo '<p><b>Category: </b>' . $row['productCatagory'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="descriptionholder">';
-                                echo '<p><b>Description: </b>' . $row['productDescription'] . '</p>';
-                                echo '</div>';
-                                echo '<div class="buttonholder">';
-                                echo '<form method="post" name="addProduct">';
-                                echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
-                                echo '<button type="submit" class="button1" name="addProduct" value="1">Add to Cart</button>';
-                                echo '</form>';
-                                echo '<form method="post" name="likeProduct">';
-                                echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
-                                echo '<button type="submit" class="button2" name="likeProduct" value="1">Like</button>';
-                                echo '</form>';
-                                echo '</div>';
-                                echo "</div>";
-                            }
-                            echo '<div style="clear: both;"</div>';
-                        }
+                    // Select all of the rows in product table and put them in an array
+                    $query = "SELECT productid, users_username, productName, productPrice, productDescription, productCatagory, productLikes, productImage FROM products ORDER BY productLikes DESC";
+                    $stmt = $dbh->prepare($query);
+                    $stmt->execute();
+                    $products = $stmt->fetchAll();
+                    // Use the products table array to display products
+                    foreach ($products as $row) {
+                        $imagePath = "images/" . $row['productImage'];
+                        echo '<div class="productholder">';
+                        echo '<div class="imgholder">';
+                        echo '<img src="' . $imagePath . '" class="productimage">';
+                        echo "</div>";
+                        echo '<div class="nameholder">';
+                        echo '<p><b>Name: </b>' . $row['productName'] . '</p>';
+                        echo '</div>';
+                        echo '<div class="priceholder">';
+                        echo '<p><b>Price: </b>' . $row['productPrice'] . '</p>';
+                        echo '</div>';
+                        echo '<div class="likeholder">';
+                        echo '<p><b>Likes: </b>' . $row['productLikes'] . '</p>';
+                        echo '</div>';
+                        echo '<div class="categoryholder">';
+                        echo '<p><b>Category: </b>' . $row['productCatagory'] . '</p>';
+                        echo '</div>';
+                        echo '<div class="descriptionholder">';
+                        echo '<p><b>Description: </b>' . $row['productDescription'] . '</p>';
+                        echo '</div>';
+                        echo '<div class="buttonholder">';
+                        echo '<form method="post" name="addProduct">';
+                        echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
+                        echo '<button type="submit" class="button1" name="addProduct" value="1">Add to Cart</button>';
+                        echo '</form>';
+                        echo '<form method="post" name="likeProduct">';
+                        echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
+                        echo '<button type="submit" class="button2" name="likeProduct" value="1">Like</button>';
+                        echo '</form>';
+                        echo '</div>';
+                        echo "</div>";
+                    }
+                    echo '<div style="clear: both;"</div>';
                     ?>
                 </div>
             </div>
