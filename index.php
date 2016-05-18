@@ -133,12 +133,14 @@
             </div>
 
             <div class="headimage">
-                <img src="images/night_city_lights.jpg" style="height: 300px; width: 100%;">
+                <video width="100%" height="300px"  autoplay controls>
+                    <source src="header.mp4" type="video/mp4">
+                </video>
             </div>
 
             <div class="categorybody">
                 <div class="container">
-                    <h1>Welcome</h1>
+                    <h1>Welcome!</h1>
                 </div>
 
                 <div class="productsContainer">
@@ -203,41 +205,40 @@
                             foreach ($products as $row) {
                                 $imagePath = "images/" . $row['productImage'];
                                 echo '<div class="productholder">';
-                                    echo '<div class="imgholder">';
-                                        echo '<img src="' . $imagePath . '" class="productimage">';
-                                    echo "</div>";
-                                    echo '<div class="nameholder">';
-                                        echo '<p><b>Name: </b>' . $row['productName'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="priceholder">';
-                                        echo '<p><b>Price: </b>' . $row['productPrice'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="likeholder">';
-                                        echo '<p><b>Likes: </b>' . $row['productLikes'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="categoryholder">';
-                                        echo '<p><b>Category: </b>' . $row['productCatagory'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="descriptionholder">';
-                                        echo '<p><b>Description: </b>' . $row['productDescription'] . '</p>';
-                                    echo '</div>';
-                                    echo '<div class="buttonholder">';
-                                        echo '<form method="post" name="addProduct">';
-                                            echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
-                                            echo '<button type="submit" class="productbutton" name="addProduct" value="1">Add to Cart</button>';
-                                        echo '</form>';
-                                        echo '<form method="post" name="likeProduct">';
-                                            echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
-                                            echo '<button type="submit" class="productbutton" name="likeProduct" value="1">Like</button>';
-                                        echo '</form>';
-                                    echo '</div>';
+                                echo '<div class="imgholder">';
+                                echo '<img src="' . $imagePath . '" class="productimage">';
+                                echo "</div>";
+                                echo '<div class="nameholder">';
+                                echo '<p><b>Name: </b>' . $row['productName'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="priceholder">';
+                                echo '<p><b>Price: </b>' . $row['productPrice'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="likeholder">';
+                                echo '<p><b>Likes: </b>' . $row['productLikes'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="categoryholder">';
+                                echo '<p><b>Category: </b>' . $row['productCatagory'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="descriptionholder">';
+                                echo '<p><b>Description: </b>' . $row['productDescription'] . '</p>';
+                                echo '</div>';
+                                echo '<div class="buttonholder">';
+                                echo '<form method="post" name="addProduct">';
+                                echo '<input type="hidden" name="productidCart" value="' . $row['productid'] . '">';
+                                echo '<button type="submit" class="button1" name="addProduct" value="1">Add to Cart</button>';
+                                echo '</form>';
+                                echo '<form method="post" name="likeProduct">';
+                                echo '<input type="hidden" name="productidLike" value="' . $row['productid'] . '">';
+                                echo '<button type="submit" class="button2" name="likeProduct" value="1">Like</button>';
+                                echo '</form>';
+                                echo '</div>';
                                 echo "</div>";
                             }
                             echo '<div style="clear: both;"</div>';
-
+                        }
                     ?>
                 </div>
             </div>
-        </div>
     </body>
 </html>

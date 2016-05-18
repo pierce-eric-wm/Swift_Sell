@@ -18,6 +18,7 @@ body {
     border-color: #4a5c68;
     background-color: white;
     position: fixed;
+    z-index: 99;
 }
 
 ul {
@@ -26,7 +27,7 @@ ul {
     position: fixed;
     text-transform: uppercase;
     font-size: 15px;
-
+    z-index: 99;
 }
 
 li {
@@ -37,6 +38,7 @@ li {
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 2em;
+    z-index: 99;
 }
 
 li a {
@@ -72,8 +74,6 @@ a:hover {
     position: fixed;
     border-bottom: 2px;
     border-right: 2px;
-    border-top: 2px;
-    border-top-style: solid;
     border-right-style: solid;
     border-bottom-style: solid;
     border-color: #4a5c68;
@@ -103,8 +103,6 @@ a:hover {
     margin-top: 70px;
     border-bottom: 2px;
     border-left: 2px;
-    border-top: 2px;
-    border-top-style: solid;
     border-left-style: solid;
     border-bottom-style: solid;
     border-color: #4a5c68;
@@ -224,6 +222,12 @@ a:hover {
 .productimage {
     height: 160px;
     width: 200px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+    border-left: 2px;
+    border-left-style: solid;
+    border-left-color: black;
 }
 
 .categoryheader {
@@ -315,6 +319,7 @@ a:hover {
      -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
      transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
      float: right;
+    border-color: #5c5d5e;
  }
 .button2 {
     display: inline-block;
@@ -338,4 +343,10 @@ a:hover {
     -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
     transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
     float: left;
+    border-color: #5c5d5e;
+}
+
+video {
+    background-color: white;
+
 }

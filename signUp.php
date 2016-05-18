@@ -119,7 +119,6 @@
         <div id="login-overlay" class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 style="float:right;">Sign Up</h3>
                     <img src="images/SwiftSell.png" style="height:38px;">
                 </div>
 
