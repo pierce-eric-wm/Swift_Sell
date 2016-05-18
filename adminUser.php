@@ -6,8 +6,7 @@
         <title>Swift Sell User- ADMIN</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     </head>
-    <body>
-    <p id="userAdminHeader">USER ADMIN PAGE</p>
+    <body> 
 <?php
 require_once ('connect.php');
 require_once ('define.php');
@@ -18,7 +17,8 @@ $stmt->execute();
 $result= $stmt->fetchAll();
 //$imagePath = "profileImages/" . $row['profileImage'];
 // Loop through the array of score data, formatting it as HTML
-
+echo'<div class="categorybodyadmin">';
+echo '<p id="userAdminHeader">USER ADMIN PAGE</p>';
 echo '<table id="adminTable">';
 echo'<td class="adminUserTd">userid</td>';
 echo'<td class="adminUserTd">username</td>';
@@ -31,6 +31,7 @@ echo '<td class="adminUserTd">profileImage</td>';
 echo '<td class="adminUserTd">password</td>';
 echo '<td class="adminUserTd">remove</td>';
 echo '<td class="adminUserTd">edit</td>';
+echo'</div>';
 foreach ($result as $row){
     // Display the score data
     echo '<tr></tr>';

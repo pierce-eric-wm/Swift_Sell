@@ -88,7 +88,7 @@ a:hover {
 .categorybody {
     background-color: white;
     width: 1000px;
-    height: 1000px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -147,7 +147,7 @@ a:hover {
 .nameholder {
     width: 165px;
     height: 40px;
-    background-color: #006992;
+    background-color: #005C92;
     border-bottom: 2px;
     border-bottom-style: solid;
     border-color: black;
@@ -157,7 +157,7 @@ a:hover {
 .priceholder {
     width: 165px;
     height: 40px;
-    background-color: #006992;
+    background-color: #005C92;
     border-bottom: 2px;
     border-bottom-style: solid;
     border-color: black;
@@ -168,7 +168,7 @@ a:hover {
 .likeholder {
     width: 165px;
     height: 40px;
-    background-color: #006992;
+    background-color: #005C92;
     border-bottom: 2px;
     border-bottom-style: solid;
     border-color: black;
@@ -179,7 +179,7 @@ a:hover {
 .categoryholder {
     width: 165px;
     height: 40px;
-    background-color: #006992;
+    background-color: #005C92;
     border-bottom: 2px;
     border-bottom-style: solid;
     border-color: black;
@@ -199,7 +199,7 @@ a:hover {
 }
 
 .buttonholder {
-    background-color: #006992;
+    background-color: #005C92;
     height: 30px;
     padding: 4px 22px;
 
@@ -297,6 +297,17 @@ a:hover {
     text-align: center;
 }
 
+.categorybodyadmin {
+    background-color: white;
+    width: 1000px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 .button1 {
      display: inline-block;
      -webkit-box-sizing: content-box;
@@ -349,4 +360,9 @@ a:hover {
 video {
     background-color: white;
 
+}
+.slogan {
+    text-align: center;
+    padding: 18px;
+    
 }

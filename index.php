@@ -139,9 +139,8 @@
             </div>
 
             <div class="categorybody">
-                <div class="container">
-                    <h1>Welcome!</h1>
-                </div>
+               
+                    <h1 class="slogan"><i>Signup. Buy it. It's that easy.</i></h1>    
 
                 <div class="productsContainer">
                     <?php

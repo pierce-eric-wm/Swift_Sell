@@ -7,7 +7,6 @@
         <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     </head>
     <body>
-    <p id="userAdminHeader">Product ADMIN PAGE</p>
 <?php
 require_once ('connect.php');
 require_once ('define.php');
@@ -18,6 +17,8 @@ $stmt->execute();
 $result= $stmt->fetchAll();
 //$imagePath = "profileImages/" . $row['profileImage'];
 // Loop through the array of score data, formatting it as HTML
+echo'<div class="categorybodyadmin">';
+echo'<p id="userAdminHeader">Product ADMIN PAGE</p>';
 echo '<table id="adminTable">';
 echo'<td class="adminUserTd">productid</td>';
 echo'<td class="adminUserTd">user_userid</td>';
@@ -29,6 +30,7 @@ echo '<td class="adminUserTd">productCatagory</td>';
 echo '<td class="adminUserTd">productLikes</td>';
 echo '<td class="adminUserTd">productImage</td>';
 echo '<td class="adminUserTd">Remove</td>';
+echo '</div>';
 
 foreach ($result as $row){
     // Display the score data
